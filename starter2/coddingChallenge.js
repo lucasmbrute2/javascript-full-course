@@ -71,4 +71,9 @@ function calcTip(bill){
     return tipToPay
 }
 
-console.log(calcTip(200))
+const bills = [155,125,44]
+const tips = [calcTip(bills[0]),calcTip(bills[1]),calcTip(bills[2])]
+bills.push(tips)
+
+const total = [tips[0]+bills[0],tips[1]+bills[1],tips[2]+bills[2]]
+console.log(total)
