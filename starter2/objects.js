@@ -48,8 +48,8 @@ const myCountry2 = {
     },
     
     func: function(year){
-        this.age =  year - this.numero //estamos criando a propriedade Age nesse exato momnento.
-        return this.age
+        this.age =  year - this.idade //estamos criando a propriedade Age nesse exato momnento.
+        return "Esse é o cálculo da idade:"+this.age
     }
 }
 
