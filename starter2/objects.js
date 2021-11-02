@@ -23,3 +23,37 @@ console.log(myCountry.population)
 myCountry['population']-=2
 
 console.log(myCountry.population)
+
+//=========== RESUMO DE COMO UTILIZAR MÉTODOS EM JS===========
+
+const myCountry2 = {
+    country: "Brasil",
+    capital : "Brasilia",
+    language: 'Português',
+    population: 13021,
+    idade: 20,
+    bornYear: function(actualYear){
+        return actualYear - this.idade
+    },
+    neighbours: new Array('Argentina','Paraguai','Chile'),    
+    driverLicense : function(){
+        if(this.bornYear(2030) <= 2000){
+            return 'Está apto para dirigir'
+        }else{
+            return 'Não está apto para dirigir.'
+        }
+    },
+    getSummary: function(){
+        return `Jonas live in ${this.country} wich his capital is ${this.capital}, speak ${this.language}, has ${myCountry2.bornYear(2020)} and he ${this.driverLicense()}`
+    },
+    
+    func: function(year){
+        this.age =  year - this.numero //estamos criando a propriedade Age nesse exato momnento.
+        return this.age
+    }
+}
+
+console.log(myCountry2.func(30))
+console.log(myCountry2.age)
+console.log(myCountry2.getSummary())
+
