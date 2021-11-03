@@ -148,10 +148,6 @@ for(let i = 0; i< bills2.length; i++){
     tips2.push(calcTip(bills2[i]))
     totals2.push(bills2[i]+tips2[i])
 }
-
-
-
-
 console.log(tips2)
 console.log(`The total value was ${totals2}`)
 
