@@ -24,7 +24,9 @@ const jonasArray = [
     2037-1991,
     'teacher',
     ['Michael','Peter','Steven'],
-    true
+    true,
+    false,
+    'teste'
 ]
 
 for(let i = 0; i<jonasArray.length ;i++){
@@ -58,3 +60,49 @@ for(let i = 0; i<jonasArray.length; i++){
 
     console.log(jonasArray[i])
 }
+
+
+console.log('') 
+console.log('-------Backward Looping------')
+
+for(let i= jonasArray.length -1; i>=0; i--){
+    console.log(jonasArray[i])
+}
+
+console.log('')
+console.log('---------FOR IN FOR---------')
+for(let exercise = 1; exercise <=4; exercise++){
+    console.log(`====Starting exercise ${exercise}=====`)
+    for(let rep = 1; rep <10; rep++){
+        console.log(`Repetition ${rep}`)
+    }
+}
+console.log('')
+console.log('----EXERCISE----')
+// 1. Store this array of arrays into a variable called 'listOfNeighbours'
+// [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden',
+// 'Russia']];
+// 2. Log only the neighbouring countries to the console, one by one, not the entire
+// arrays. Log a string like 'Neighbour: Canada' for each country
+// 3. You will need a loop inside a loop for this. This is actually a bit tricky, so don't
+// worry if it's too difficult for you! But you can still try to figure this out anyway
+
+const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden','Russia']]
+
+console.log()
+for(let country =0; country<listOfNeighbours.length; country++){
+    for(let neighbour = 0; neighbour< listOfNeighbours[country].length; neighbour++){
+        console.log(`Neighbour: ${listOfNeighbours[country][neighbour]}`)
+    }
+}
+
+console.log('')
+console.log('----WHILE----')
+
+let dice = Math.trunc(Math.random()*6)+1;
+while(dice !==6){
+    console.log(`You rolled ${dice}`)
+    dice = Math.trunc(Math.random()*6)+1;
+}
+
+
