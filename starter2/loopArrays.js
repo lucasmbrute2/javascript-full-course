@@ -48,3 +48,13 @@ for(let i = 0; i<jonasArray.length; i++){
     
     console.log(jonasArray[i])
 }
+
+console.log('')
+console.log('----------BREAK WITH NUMBER-------')
+
+
+for(let i = 0; i<jonasArray.length; i++){
+    if(typeof jonasArray[i] === 'number') break
+
+    console.log(jonasArray[i])
+}
