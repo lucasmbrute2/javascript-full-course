@@ -65,12 +65,26 @@ function hoistingFunction() {
   console.log('Yeah, this was hoisted');
 }
 
-//Lets get some examples:
+//Lets get some examples with variables:
 
 console.log(me); // was hoisted wich value undefined
-console.log(job);
-console.log(year);
+// console.log(job); // log error
+// console.log(year);//log error
 
 var me = 'Lucas';
 let job = 'Dev';
 const year = 2000;
+
+// Now wich functions:
+
+console.log(addDecal(2, 3)); // was hoisted
+
+function addDecal(a, b) {
+  return a + b;
+}
+
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+const addArror = (a, b) => a + b;
