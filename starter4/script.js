@@ -33,7 +33,7 @@ function Declaration() {
 }
 
 //-> ARROW FUNCTION
-const expression = () => {
+const expressionArrow = () => {
   return true;
 };
 
@@ -56,5 +56,11 @@ if (myName === 'Lucas') {
 
 /*WHY HOISTING EXISTS? 
 
-Hoisting exists to use functions 
+Hoisting exists to use functions declaration before we declare them, such as example: 
 */
+
+hoistingFunction();
+
+function hoistingFunction() {
+  console.log('Yeah, this was hoisted');
+}
