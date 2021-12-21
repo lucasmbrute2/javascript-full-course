@@ -88,3 +88,11 @@ const addExpr = function (a, b) {
 };
 
 const addArror = (a, b) => a + b;
+
+//Cool stuff
+
+// A variable declared with VAR will be able in window, such as the example:
+
+var x = 1;
+
+console.log(x === window.x); // the response is true
