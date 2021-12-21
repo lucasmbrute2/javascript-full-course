@@ -96,3 +96,19 @@ const addArror = (a, b) => a + b;
 var x = 1;
 
 console.log(x === window.x); // the response is true
+
+//==================================================================
+//TALKING ABOUT --- THIS---------
+
+// The THIS keyword/variable: Special variable that is created for every execution context (every function). Takes the value of the "owner" of the function that this is  called.
+
+//THIS IS NOT STATIC. It depends how on the function is called, and its value is only assisgned when the function is actually called.
+
+const obj = {
+  name: 'lucas',
+  coolFunc: function () {
+    return this.name;
+  },
+};
+
+console.log(obj.coolFunc());
