@@ -64,3 +64,13 @@ hoistingFunction();
 function hoistingFunction() {
   console.log('Yeah, this was hoisted');
 }
+
+//Lets get some examples:
+
+console.log(me); // was hoisted wich value undefined
+console.log(job);
+console.log(year);
+
+var me = 'Lucas';
+let job = 'Dev';
+const year = 2000;
