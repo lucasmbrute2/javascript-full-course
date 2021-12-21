@@ -24,16 +24,16 @@ calcAge(1994);
 
 -> First, talking about functions, there are function EXPRESSIONS, they are =>*/
 
-const declaration = function () {
+const expression = function () {
   return true;
 };
 //-> Function DECLARATION
-function Expression() {
+function Declaration() {
   return true;
 }
 
 //-> ARROW FUNCTION
-const declaration = () => {
+const expression = () => {
   return true;
 };
 
@@ -53,3 +53,8 @@ if (myName === 'Lucas') {
 }
 
 // Note that const 'job' cannot be accesses in lines 49,50,51, because those lines are the TDZ
+
+/*WHY HOISTING EXISTS? 
+
+Hoisting exists to use functions 
+*/
