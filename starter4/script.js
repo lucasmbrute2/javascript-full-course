@@ -112,3 +112,37 @@ const obj = {
 };
 
 console.log(obj.coolFunc());
+
+//THIS DOESN'T WORKS WICH ARROW FUNCTION
+
+const calcAge2 = function () {
+  console.log('alo');
+  console.log(this);
+};
+
+calcAge2(); // This will return undefined, cuz didnt has a owner.
+
+const calcAge3 = () => {
+  console.log('alo');
+  console.log(this);
+};
+calcAge3(); // It will return window, cuz arrown function DIDNT HAS THIS KEY WORD
+
+// =====OBJECT BORROWING=========
+
+const Lucas = {
+  year: 2000,
+  calcAge: function () {
+    console.log(2037 - this.year);
+  },
+};
+
+Lucas.calcAge();
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = Lucas.calcAge; // We created a key CalcAge in matilda with CalcAge method from  Lucas
+
+matilda.calcAge(); // RETURN 20 cuz the THIS keyword get the matilda year reference.
