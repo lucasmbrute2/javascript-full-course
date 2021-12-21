@@ -37,8 +37,19 @@ const declaration = () => {
   return true;
 };
 
-// Hoisting make some kind of variable acessible in the code, in fact, before were declared
+// Hoisting make some kind of variable acessible in the code, in fact, before they're declared
 
-// FUNCTION DECLARATIONS are Hoistable, VAR variables either.
+// FUNCTION DECLARATIONS are Hoistable, your value is the Actual funtion, VAR variables either, your value is undefined.
 
-//Function Expressions and Arrows
+//TDZ -> Temporal Dead Zone- > Is the scope area that can't be accesses, such as example:
+
+const myName = 'Lucas';
+
+if (myName === 'Lucas') {
+  console.log('Eu sou o Lucas'); //
+  const age = 21; //
+  console.log(age); //
+  const job = 'Software Engineer';
+}
+
+// Note that const 'job' cannot be accesses in lines 49,50,51, because those lines are the TDZ
