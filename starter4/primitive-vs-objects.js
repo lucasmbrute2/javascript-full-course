@@ -20,3 +20,26 @@ console.log({ friend }, { me }); // in this case the age will return 27 in both 
 //OLHAR ANOTAÇÕES NA UDEMY, EXPLICAÇÃO SOBRE OS TIPOS
 
 //Basicamente, é alterado nas duas variáveis, pois o valor é alterado no Heap, e  mantido para as duas variáveis, ou seja, o ''address' não se altera, mesmo que definido com CONST. Ou seja variáveis definidas com CONST são imutáveis apenas para valores primitivos.
+
+//PRACTICE
+
+//Primitive types
+let lastName = 'Dantas';
+let oldLastName = lastName;
+lastName = 'Falci';
+
+console.log({ lastName }, { oldLastName });
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+
+let marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('After marriage:', marriedJessica);
+
+//Making this work with Reference values
