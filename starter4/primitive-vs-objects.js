@@ -55,4 +55,4 @@ console.log(jessicaCopy, jessica2);
 
 //jessicaCopy is now a copy of jessica2, a new object was in fact created in the Heap, and jessicaCopy is now poiting to that object.
 
-// THE PROBLEM IS SOLVED BUT... there is a one problem. The object assign only works in the first level. Its a shallow copy, whats mean, if we have an object inside the object, this inner object will still be the same. Both the variables are be changed.
+// THE PROBLEM IS SOLVED BUT... there is a one problem. The object assign only works in the first level. Its a shallow copy, whats mean, if we have an object inside the object, this inner object will still be the same. Both the variables are b
