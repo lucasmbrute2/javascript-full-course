@@ -60,3 +60,14 @@ console.log({ teste1 }, { teste2 });
 
 const [starter, main] = restaurant.order(1, 2); //Assim nós podemos desestruturar a resposta de uma função.
 console.log(starter, main);
+
+//========NESTED DESESTRUCTURING=========================
+
+const nested = [2, 4, [5, 6]];
+
+const [value1, , value2] = nested;
+console.log(value1, value2);
+
+const [value3, , [value1Nested, value2Nested]] = nested; //Aqui está sendo foi a desestruturação dentro da desestruturação!
+
+console.log(value3, value1Nested, value2Nested);
