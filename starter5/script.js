@@ -68,6 +68,11 @@ const nested = [2, 4, [5, 6]];
 const [value1, , value2] = nested;
 console.log(value1, value2);
 
-const [value3, , [value1Nested, value2Nested]] = nested; //Aqui está sendo foi a desestruturação dentro da desestruturação!
+const [value3, , [value1Nested, value2Nested]] = nested; //Aqui está sendo foi a desestruturação dentro da desestruturação
 
 console.log(value3, value1Nested, value2Nested);
+
+//======SETTING DEFAULT VALUES IN DESESTRUCTURING.=============
+
+const [p, q, r = 1] = [8, 9]; //Para evitar que a variável R fosse undefined, nós atribuimos como valor Default 1, sendo assim, sempre que ela não receber nenhum valor da desestruturação, irá por padrão ser o 1 o seu valor.
+console.log(p, q, r);
