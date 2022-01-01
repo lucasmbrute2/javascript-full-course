@@ -28,7 +28,7 @@ const restaurant = {
   },
 
   order: function (starterIndex, mainMenuIndex) {
-    return [this.stater];
+    return [this.starterMenu[starterIndex], this.starterMenu[mainMenuIndex]];
   },
 };
 
@@ -57,3 +57,6 @@ const arr2 = 31313;
 
 const [teste1, teste2] = [arr, arr2];
 console.log({ teste1 }, { teste2 });
+
+const [starter, main] = restaurant.order(1, 2); //Assim nós podemos desestruturar a resposta de uma função.
+console.log(starter, main);
