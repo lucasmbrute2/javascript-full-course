@@ -26,7 +26,24 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function(starterIndex, mainMenuIndex){
+    return [this.starterIndex]
+  }
 };
 
 const [categories1, categories2, ...rest] = restaurant.categories;
 console.log({ categories1 }, { categories2 }, { rest });
+
+// To switch variables using desestructuring 
+let [starterMenu1, starterMenu2 ,...rest2] = restaurant.starterMenu
+console.log(starterMenu1,starterMenu2,rest2)
+
+//  =========WITHOUT DESESTRUCTURING======
+// const temp = starterMenu1;
+// starterMenu1 = starterMenu2;
+// starterMenu2 = temp;
+
+//==========WITH DESESTRUCTURING==========
+[starterMenu1,starterMenu2] = [starterMenu2, starterMenu1]
+console.log(starterMenu1,starterMenu2)
