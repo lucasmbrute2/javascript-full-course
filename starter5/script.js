@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Data needed for a later exercise
 const flights =
@@ -27,18 +27,18 @@ const restaurant = {
     },
   },
 
-  order: function(starterIndex, mainMenuIndex){
-    return [this.stater]
-  }
+  order: function (starterIndex, mainMenuIndex) {
+    return [this.stater];
+  },
 };
 
 const [categories1, categories2, ...rest] = restaurant.categories;
 console.log({ categories1 }, { categories2 }, { rest });
 
-// To switch variables using desestructuring 
+// To switch variables using desestructuring
 
-let [starterMenu1,starterMenu2] = restaurant.starterMenu;
-console.log(starterMenu1,starterMenu2);
+let [starterMenu1, starterMenu2] = restaurant.starterMenu;
+console.log(starterMenu1, starterMenu2);
 
 //  =========WITHOUT DESESTRUCTURING======
 // const temp = starterMenu1;
@@ -47,14 +47,13 @@ console.log(starterMenu1,starterMenu2);
 // console.log(starterMenu1,starterMenu2)
 //==========WITH DESESTRUCTURING==========
 
-[starterMenu1, starterMenu2] = [starterMenu2, starterMenu1]; 
-console.log(starterMenu1,starterMenu2);
+[starterMenu1, starterMenu2] = [starterMenu2, starterMenu1];
+console.log(starterMenu1, starterMenu2);
 // Aqui as variáveis starterMenu2 e starterMenu1 estão sendo colocadas dentro de uma lista e sendo desestruturadas, sobrescrevendo os valores e invertendo as posicoes.
 
-
 //OUTROE EXEMPLO
-const arr= 3131
-const arr2 = 31313
+const arr = 3131;
+const arr2 = 31313;
 
-const [teste1, teste2] = [arr, arr2]
-console.log({teste1}, {teste2})
+const [teste1, teste2] = [arr, arr2];
+console.log({ teste1 }, { teste2 });
