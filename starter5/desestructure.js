@@ -76,3 +76,5 @@ console.log(value3, value1Nested, value2Nested);
 
 const [p, q, r = 1] = [8, 9]; //Para evitar que a variável R fosse undefined, nós atribuimos como valor Default 1, sendo assim, sempre que ela não receber nenhum valor da desestruturação, irá por padrão ser o 1 o seu valor.
 console.log(p, q, r);
+
+//===============DESESTRUCTURING OBJECTS===============
