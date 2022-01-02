@@ -78,3 +78,5 @@ const [p, q, r = 1] = [8, 9]; //Para evitar que a variável R fosse undefined, n
 console.log(p, q, r);
 
 //===============DESESTRUCTURING OBJECTS===============
+const { name: restaurantName, openingHours, categories } = restaurant; //We can change the name with ':'.
+console.log(restaurantName, openingHours, categories);
