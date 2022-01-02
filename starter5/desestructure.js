@@ -85,3 +85,13 @@ console.log(restaurantName, openingHours, categories);
 const { menu = [], starterMenu: starters = [], teste: abc = [] } = restaurant; //We can set default values and set new names.
 
 console.log(menu, starters, abc);
+
+//MUTATING VARIABLES
+let a = 2121;
+let b = 3131;
+
+const obj = { a: 23, b: 12, c: 4 };
+
+({ a, b } = obj); // This will only works to variables that were be mutaded.
+
+console.log(a, b);
