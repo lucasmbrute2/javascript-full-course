@@ -30,7 +30,30 @@ const restaurant = {
   order: function (starterIndex, mainMenuIndex) {
     return [this.starterMenu[starterIndex], this.starterMenu[mainMenuIndex]];
   },
+
+  orderDelivery: function ({
+    time = '10:15',
+    address = 'Rua David Lopes',
+    mainIndex,
+    starterIndex,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.starterMenu[mainIndex]} will be devilered to ${address} at ${time}.`
+    );
+  }, // This is how to desestruct in a function, as well we do in React with the props. Nós também podemos passar Default Values.
 };
+
+restaurant.orderDelivery({
+  time: '00:15',
+  address: 'Rua das Canoas',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  mainIndex: 2,
+  starterIndex: 2,
+});
 
 const [categories1, categories2, ...rest] = restaurant.categories;
 console.log({ categories1 }, { categories2 }, { rest });
