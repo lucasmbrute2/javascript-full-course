@@ -80,3 +80,8 @@ console.log(p, q, r);
 //===============DESESTRUCTURING OBJECTS===============
 const { name: restaurantName, openingHours, categories } = restaurant; //We can change the name with ':'.
 console.log(restaurantName, openingHours, categories);
+
+//DEFAULT VALUES
+const { menu = [], starterMenu: starters = [], teste: abc = [] } = restaurant; //We can set default values and set new names.
+
+console.log(menu, starters, abc);
