@@ -95,3 +95,10 @@ const obj = { a: 23, b: 12, c: 4 };
 ({ a, b } = obj); // This will only works to variables that were be mutaded.
 
 console.log(a, b);
+
+//NESTED OBJECTS
+
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close); //  A sintaxe é estranha mas é isso
