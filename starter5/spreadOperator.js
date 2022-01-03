@@ -57,3 +57,11 @@ const newItem = [...restaurant.mainMenu, 'Lasagna'];
 console.log(newItem);
 
 //OBS: os '[]' antes do '=' significa que algo está sendo desestruturado, após o '=' significa que uma nova lista está sendo criada.
+
+//Shallow copy Array
+const mainMenyCopy = [...restaurant.mainMenu];
+
+//Joining Arrays
+
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
