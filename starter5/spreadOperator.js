@@ -80,9 +80,9 @@ const letters = [...str, '', 'S.'];
 console.log(letters);
 
 const ingredients = [
-  prompt('Lets make pasta!, Ingredient 1? '),
-  prompt('Ingredient 2?'),
-  prompt('Igredient3? '),
+  /*prompt*/ 'Lets make pasta!, Ingredient 1? ',
+  /*prompt*/ 'Ingredient 2?',
+  /*prompt*/ 'Igredient3? ',
 ];
 
 //Nós temos algumas formas de passar argumentos para uma função, sendo com Hard-code, escrevendo na mão os parametros.
@@ -90,3 +90,12 @@ restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
 
 //Ou podemos passar com o Spread.
 restaurant.orderPasta(...ingredients);
+
+//================SPREAD OBJECTS=============
+
+const newRestaurant = {
+  foundedIn: 2001,
+  ...restaurant,
+  founder: 'Lucas Victor',
+};
+console.log(newRestaurant);
