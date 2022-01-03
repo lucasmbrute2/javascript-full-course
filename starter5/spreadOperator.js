@@ -50,3 +50,10 @@ teste(...newArr); // Podemos passa-lo dessa forma para a função, sendo cada el
 function teste(params, params2, ...rest) {
   return console.log({ params }, { params2 }, { rest });
 }
+
+//=====CREATING ITEMS WITH SPREAD======
+console.log(restaurant.mainMenu);
+const newItem = [...restaurant.mainMenu, 'Lasagna'];
+console.log(newItem);
+
+//OBS: os '[]' antes do '=' significa que algo está sendo desestruturado, após o '=' significa que uma nova lista está sendo criada.
