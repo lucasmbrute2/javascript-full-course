@@ -36,6 +36,12 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.starterMenu[mainIndex]} will be devilered to ${address} at ${time}.`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here's your delicious pasta with ${ing1}, ${ing2} and ${ing3}.`
+    );
+  },
 };
 
 //=======HOW TO USE SPREAD======
@@ -72,3 +78,15 @@ console.log(menu);
 const str = 'Lucas';
 const letters = [...str, '', 'S.'];
 console.log(letters);
+
+const ingredients = [
+  prompt('Lets make pasta!, Ingredient 1? '),
+  prompt('Ingredient 2?'),
+  prompt('Igredient3? '),
+];
+
+//Nós temos algumas formas de passar argumentos para uma função, sendo com Hard-code, escrevendo na mão os parametros.
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+
+//Ou podemos passar com o Spread.
+restaurant.orderPasta(...ingredients);
