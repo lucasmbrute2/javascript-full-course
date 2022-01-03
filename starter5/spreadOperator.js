@@ -59,9 +59,16 @@ console.log(newItem);
 //OBS: os '[]' antes do '=' significa que algo está sendo desestruturado, após o '=' significa que uma nova lista está sendo criada.
 
 //Shallow copy Array
+
 const mainMenyCopy = [...restaurant.mainMenu];
 
 //Joining Arrays
 
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menu);
+
+//Iterables: arrays, strings, maps, set. NOT objects
+
+const str = 'Lucas';
+const letters = [...str, '', 'S.'];
+console.log(letters);
