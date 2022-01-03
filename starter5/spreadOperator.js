@@ -38,5 +38,15 @@ const restaurant = {
   },
 };
 
+//=======HOW TO USE SPREAD======
+const arr = [7, 8, 9];
+const newArr = [1, 2, 3, 4, ...arr];
+console.log({ newArr });
 
-const 
+console.log(...newArr); // O Spread espalha os elementos, sendo assim, eles realmente serão logados 1 por 1.
+
+teste(...newArr); // Podemos passa-lo dessa forma para a função, sendo cada elemento do spread um paramentro da função.
+
+function teste(params, params2, ...rest) {
+  return console.log({ params }, { params2 }, { rest });
+}
