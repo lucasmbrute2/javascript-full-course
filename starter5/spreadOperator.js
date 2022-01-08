@@ -99,3 +99,10 @@ const newRestaurant = {
   founder: 'Lucas Victor',
 };
 console.log(newRestaurant);
+
+//====CHANGING THE ORDER
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Restaurante do Sorão!';
+
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
