@@ -49,6 +49,7 @@ const restaurant = {
   },
 };
 
+console.log('------------OR-----------------');
 console.log(3 || 'Lucas');
 console.log('' || 'Lucas');
 console.log(true || 0);
@@ -67,3 +68,10 @@ console.log(guests1);
 restaurant.numGuest = 'exists';
 const guests2 = restaurant.numGuest || 'dont exists';
 console.log(guests2);
+
+//The problem is when we set the numGuest with 0, wich is't this truthy value. Resolution about this problem later
+restaurant.numGuest = 0;
+const guests3 = restaurant.numGuest || 'dont exists';
+console.log(guests3);
+
+console.log('------------AND-----------------');
