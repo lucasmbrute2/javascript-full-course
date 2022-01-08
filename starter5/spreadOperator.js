@@ -42,6 +42,11 @@ const restaurant = {
       `Here's your delicious pasta with ${ing1}, ${ing2} and ${ing3}.`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log({ mainIngredient });
+    console.log({ otherIngredients });
+  },
 };
 //
 
@@ -130,7 +135,7 @@ console.log(sat, restObject);
 //Functions
 
 const add = (...numbers) => {
-  return numbers.reduce((acc, curr) => acc + curr);
+  return console.log(numbers.reduce((acc, curr) => acc + curr));
   //or
   // let poll = 0;
   // for (let i = 0; i < numbers.length; i++) {
@@ -138,5 +143,10 @@ const add = (...numbers) => {
   // }
   // return poll;
 };
+add(13, 31, 3, 13, 14, 14, 1, 41, 41, 41); // Aqui foi criado uma função que aceita uma quantiade indefinida de números.
 
-console.log(add(13, 31, 3, 13, 14, 14, 1, 41, 41, 41)); // Aqui foi criado uma função que aceita uma quantiade indefinida de números.
+const x = [23, 5, 7];
+
+add(...x);
+
+restaurant.orderPizza('cheese', 'bacon', 'salamigno');
