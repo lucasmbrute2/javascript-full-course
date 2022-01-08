@@ -43,6 +43,7 @@ const restaurant = {
     );
   },
 };
+//
 
 //=======HOW TO USE SPREAD======
 const arr = [7, 8, 9];
@@ -106,3 +107,24 @@ restaurantCopy.name = 'Restaurante do Sorão!';
 
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
+
+// =========REST PATERN================
+
+const array = [1, 2, ...[3, 4, 5]]; // Sabemos que é um SPREAD comum pois está do lado direito do =
+
+const [a, b, ...rest] = [1, 2, 3, 4, 5, 6, 7, 8, 0, 0]; // Sabemos que é um Rest por que está do lado esquerdo do =
+
+console.log(a, b, { rest });
+
+const [pizza, , risotto, ...rest2] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+]; // Exemplo de desestruturação com Rest parameter.
+
+console.log(pizza, risotto, rest2);
+
+//Objects
+
+const { sat, ...restObject } = restaurant.openingHours;
+
+console.log(sat, restObject);

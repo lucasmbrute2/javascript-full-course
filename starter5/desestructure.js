@@ -68,6 +68,7 @@ console.log(starterMenu1, starterMenu2);
 // starterMenu1 = starterMenu2;
 // starterMenu2 = temp;
 // console.log(starterMenu1,starterMenu2)
+
 //==========WITH DESESTRUCTURING==========
 
 [starterMenu1, starterMenu2] = [starterMenu2, starterMenu1];
