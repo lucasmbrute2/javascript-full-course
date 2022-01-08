@@ -120,11 +120,23 @@ const [pizza, , risotto, ...rest2] = [
   ...restaurant.mainMenu,
   ...restaurant.starterMenu,
 ]; // Exemplo de desestruturação com Rest parameter.
-
 console.log(pizza, risotto, rest2);
 
 //Objects
 
 const { sat, ...restObject } = restaurant.openingHours;
-
 console.log(sat, restObject);
+
+//Functions
+
+const add = (...numbers) => {
+  return numbers.reduce((acc, curr) => acc + curr);
+  //or
+  // let poll = 0;
+  // for (let i = 0; i < numbers.length; i++) {
+  //   poll += numbers[i];
+  // }
+  // return poll;
+};
+
+console.log(add(13, 31, 3, 13, 14, 14, 1, 41, 41, 41)); // Aqui foi criado uma função que aceita uma quantiade indefinida de números.
