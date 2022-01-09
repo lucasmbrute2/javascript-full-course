@@ -73,3 +73,21 @@ rest2.numGuests ||= 10;
 
 console.log(rest1);
 console.log(rest2);
+
+// NULLISH ASSIGMENT OPERATOR
+
+const rest3 = {
+  name: 'Meu restaurante',
+  numGuests: 0, //If this value was 0, we have to change the Operator || to ??
+};
+
+const rest4 = {
+  name: 'Meu restaurante',
+  owner: 'Lucas',
+};
+
+rest3.numGuests ??= 10;
+rest4.numGuests ??= 10;
+
+console.log(rest3);
+console.log(rest4);
