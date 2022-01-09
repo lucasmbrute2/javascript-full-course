@@ -75,3 +75,18 @@ const guests3 = restaurant.numGuest || 'dont exists';
 console.log(guests3);
 
 console.log('------------AND-----------------');
+
+console.log(0 && 'Lucas'); // This will return 0, cuz with && operator the short-circuiting will occurr when the fist value was falsy
+console.log(7 && 'Lucas'); //This will return 'Lucas', cuz the 7 is true, so the evaluation continues
+
+console.log('Hello' && 23 && null && 'Lucas'); // This will return null
+
+//We can change this
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('abobora', 'feijão');
+}
+
+//To this
+
+restaurant.orderPizza && restaurant.orderPizza('abobora', 'feijão'); // Isso é possível, pois como foi aprendido, o primeiro elemento (restaurant.orderPizza) é truthy, sendo assim, o circuit break irá acontecer no segundo elemento.
