@@ -46,6 +46,7 @@ const restaurant = {
   orderPizza: function (mainIngredient, ...otherIngredients) {
     console.log({ mainIngredient });
     console.log({ otherIngredients });
+    console.log('====================================');
   },
 };
 
@@ -61,18 +62,26 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null); //This will return '
 
 // restaurant.numGuest = 'exists';
 const guests1 = restaurant.numGuest ? restaurant.numGuest : 'dont exists';
-console.log(guests1);
+console.log({ guests1 });
 
 //The other way to do this:
 
 restaurant.numGuest = 'exists';
 const guests2 = restaurant.numGuest || 'dont exists';
-console.log(guests2);
+console.log({ guests2 });
 
-//The problem is when we set the numGuest with 0, wich is't this truthy value. Resolution about this problem later
+//THE PROBLEM is when we set the numGuest with 0, wich is't this truthy value.
 restaurant.numGuest = 0;
 const guests3 = restaurant.numGuest || 'dont exists';
-console.log(guests3);
+console.log({ guests3 });
+
+//TO SOLVE THIS:
+restaurant.numGuest = 0;
+const guestCorrect = restaurant.numGuest ?? 'dont exists';
+console.log({ guestCorrect });
+/* Nullish: null and undefined.
+?? operator não funciona com o princípio de Nullish.
+*/
 
 console.log('------------AND-----------------');
 
@@ -82,11 +91,9 @@ console.log(7 && 'Lucas'); //This will return 'Lucas', cuz the 7 is true, so the
 console.log('Hello' && 23 && null && 'Lucas'); // This will return null
 
 //We can change this
-
 if (restaurant.orderPizza) {
   restaurant.orderPizza('abobora', 'feijão');
 }
 
 //To this
-
 restaurant.orderPizza && restaurant.orderPizza('abobora', 'feijão'); // Isso é possível, pois como foi aprendido, o primeiro elemento (restaurant.orderPizza) é truthy, sendo assim, o circuit break irá acontecer no segundo elemento.
