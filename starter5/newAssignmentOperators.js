@@ -74,7 +74,7 @@ rest2.numGuests ||= 10;
 console.log(rest1);
 console.log(rest2);
 
-// NULLISH ASSIGMENT OPERATOR
+// NULLISH ASSIGMENT OPERATOR (null or undefined)
 
 const rest3 = {
   name: 'Meu restaurante',
@@ -89,5 +89,11 @@ const rest4 = {
 rest3.numGuests ??= 10;
 rest4.numGuests ??= 10;
 
-console.log(rest3);
-console.log(rest4);
+// rest3.owner = rest3.owner && '<Anonimo>';
+// rest4.owner = rest4.owner && '<Anonimo>'; // Aqui está substituindo o valor de owner
+
+// The better way
+rest3.owner &&= '<ANONIMO>'; // Desta forma é melhor pois não injeta o valor 'undefined' caso seja falsy
+rest3.owner &&= '<ANONIMO>';
+console.log({ rest3 });
+console.log({ rest4 });
