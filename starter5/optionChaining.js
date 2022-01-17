@@ -80,3 +80,13 @@ for (const day of weekdays2) {
 
 console.log(restaurant.order?.(0, 3) || 'This method doesnt exists');
 console.log(restaurant.orderRisotto?.(0, 3) || 'This method doesnt exists');
+
+//Arrays
+
+const users = [{ name: 'lucas' }, { email: 'lucasmbrute614@gmai.com' }];
+
+console.log(users[0]?.name ?? 'User array empty');
+
+const users2 = [];
+
+console.log(users2[0]?.name ?? 'User array empty'); // Dont throw a error .
