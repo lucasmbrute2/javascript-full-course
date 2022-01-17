@@ -1,3 +1,4 @@
+'use strict';
 // We're building a football betting app (soccer for my American friends �)!
 
 // Suppose we get data from a web service about a certain game ('game' variable on
