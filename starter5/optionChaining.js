@@ -65,7 +65,7 @@ if (restaurant.openingHours && restaurant.openingHours.mon)
 
 console.log(restaurant.openingHours?.mom?.open);
 
-//EXAMPLLES
+//============EXAMPLLES==============
 const weekdays2 = ['mon', 'tue', 'wed', 'thu', 'fri'];
 
 for (const day of weekdays2) {
@@ -75,3 +75,8 @@ for (const day of weekdays2) {
     } in ${day}.`
   );
 }
+
+//METHODS
+
+console.log(restaurant.order?.(0, 3) || 'This method doesnt exists');
+console.log(restaurant.orderRisotto?.(0, 3) || 'This method doesnt exists');
