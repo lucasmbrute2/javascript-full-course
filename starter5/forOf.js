@@ -61,3 +61,9 @@ for (let i = 0; i < menu.length; i++) {
 
 console.log('==========FOR OF=================');
 for (const item of menu) console.log(item);
+
+// GETTING THE INDEX WITH FOR OF
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
