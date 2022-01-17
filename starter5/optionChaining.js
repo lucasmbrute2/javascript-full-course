@@ -21,6 +21,10 @@ const restaurant = {
       open: 0, // Open 24 hours
       close: 24,
     },
+    tue: {
+      open: 0,
+      close: 20,
+    },
   },
 
   order(starterIndex, mainMenuIndex) {
@@ -60,3 +64,14 @@ if (restaurant.openingHours && restaurant.openingHours.mon)
 // WITH OPTION CHAINING
 
 console.log(restaurant.openingHours?.mom?.open);
+
+//EXAMPLLES
+const weekdays2 = ['mon', 'tue', 'wed', 'thu', 'fri'];
+
+for (const day of weekdays2) {
+  console.log(
+    `We are open at:  ${
+      restaurant.openingHours[day]?.open ?? 'Im sorry, actually we are not open'
+    } in ${day}.`
+  );
+}
