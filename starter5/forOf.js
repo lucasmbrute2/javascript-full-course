@@ -1,5 +1,5 @@
 'use strict';
-
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri'];
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -8,7 +8,7 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
   openingHours: {
-    thu: {
+    [weekdays[3]]: {
       open: 12,
       close: 22,
     },
@@ -16,17 +16,17 @@ const restaurant = {
       open: 11,
       close: 23,
     },
-    sat: {
+    [`day-${2 + 4}`]: {
       open: 0, // Open 24 hours
       close: 24,
     },
   },
 
-  order: function (starterIndex, mainMenuIndex) {
+  order(starterIndex, mainMenuIndex) {
     return [this.starterMenu[starterIndex], this.starterMenu[mainMenuIndex]];
   },
 
-  orderDelivery: function ({
+  orderDelivery({
     time = '10:15',
     address = 'Rua David Lopes',
     mainIndex,
@@ -37,13 +37,13 @@ const restaurant = {
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here's your delicious pasta with ${ing1}, ${ing2} and ${ing3}.`
     );
   },
 
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log({ mainIngredient });
     console.log({ otherIngredients });
     console.log('====================================');
@@ -67,3 +67,5 @@ for (const item of menu) console.log(item);
 for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
+
+console.log(restaurant.openingHours);
