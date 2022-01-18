@@ -90,3 +90,10 @@ console.log(users[0]?.name ?? 'User array empty');
 const users2 = [];
 
 console.log(users2[0]?.name ?? 'User array empty'); // Dont throw a error .
+
+const obj = {};
+
+obj['chave'] = 'valor';
+console.log(obj);
+
+console.log(obj['chave']);
