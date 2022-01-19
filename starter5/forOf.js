@@ -72,3 +72,11 @@ console.log(restaurant.openingHours);
 
 const prop = Object.keys(restaurant.openingHours);
 console.log(prop); // This will keep in a variable all these object's key, making a array of keys.
+
+let openStr = `We are open at ${prop.length} days: `;
+
+for (const day of prop) {
+  openStr += `${day}, `;
+} // So we can use a FOR to iteration in this list and make this effect
+
+console.log(openStr);
