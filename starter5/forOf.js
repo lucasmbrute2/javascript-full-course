@@ -96,6 +96,6 @@ console.log({ values });
 const entries = Object.entries(restaurant.openingHours);
 console.log(entries); // Yeah, now we can loop over the object
 
-for (const entrie of entries) {
-  console.log(entrie);
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
