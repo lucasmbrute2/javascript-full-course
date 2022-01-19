@@ -20,7 +20,7 @@ const restaurant = {
       open: 0, // Open 24 hours
       close: 24,
     },
-    [weekdays[5]]: {
+    [weekdays[2]]: {
       open: 11,
       colse: 20,
     },
@@ -72,6 +72,8 @@ for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
 
+//===========LOOPING TROUGH OBJECTS===============
+
 // PROPERTY NAMES
 console.log(restaurant.openingHours);
 
@@ -90,3 +92,10 @@ console.log(openStr);
 
 const values = Object.values(restaurant.openingHours);
 console.log({ values });
+
+const entries = Object.entries(restaurant.openingHours);
+console.log(entries); // Yeah, now we can loop over the object
+
+for (const entrie of entries) {
+  console.log(entrie);
+}
