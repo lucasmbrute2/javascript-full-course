@@ -20,6 +20,10 @@ const restaurant = {
       open: 0, // Open 24 hours
       close: 24,
     },
+    [weekdays[5]]: {
+      open: 11,
+      colse: 20,
+    },
   },
 
   order(starterIndex, mainMenuIndex) {
@@ -68,6 +72,7 @@ for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
 
+// PROPERTY NAMES
 console.log(restaurant.openingHours);
 
 const prop = Object.keys(restaurant.openingHours);
@@ -80,3 +85,8 @@ for (const day of prop) {
 } // So we can use a FOR to iteration in this list and make this effect
 
 console.log(openStr);
+
+// PROPERTY VALUES
+
+const values = Object.values(restaurant.openingHours);
+console.log({ values });
