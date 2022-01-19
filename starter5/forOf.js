@@ -69,3 +69,6 @@ for (const [i, el] of menu.entries()) {
 }
 
 console.log(restaurant.openingHours);
+
+const prop = Object.keys(restaurant.openingHours);
+console.log(prop); // This will keep in a variable all these object's key, making a array of keys.
