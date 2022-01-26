@@ -61,3 +61,23 @@ const game = {
     team2: 6.5,
   },
 };
+
+for (const [index, player] of game.scored.entries())
+  console.log(`Goal:${index + 1} ${player}`);
+
+function AverageOdd() {
+  letCountOdd = 0;
+  oddObjectValue = Object.values(game.odds);
+
+  for (const odd of oddObjectValue) {
+    letCountOdd += odd;
+  }
+  return letCountOdd / oddObjectValue.length;
+}
+
+console.log(`The average of odds are ${AverageOdd().toFixed(2)}`);
+
+for (let [team, odd] of Object.entries(game.odds)) {
+  console.log({ team });
+  console.log(`Odd of ${game[team] || `draw`} : ${odd}`);
+}
