@@ -124,5 +124,8 @@ for (const [key, value] of question) {
   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
 }
 
-const answer = +prompt('Your answer');
-console.log(question.get(answer === 3)); //We can do this cuz the key in question is an Boolean
+// const answer = +prompt('Your answer');
+console.log(question.get(answer === question.get('correct'))); //We can do this cuz the key in question is an Boolean
+
+//Convert map to array
+console.log([...question]);
