@@ -116,3 +116,10 @@ console.log(Object.entries(restaurant.openingHours));
 
 const hoursMap = new Map(Object.entries(restaurant.openingHours));
 console.log(hoursMap);
+
+//QUIZ APP
+console.log(question.get('question'));
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
