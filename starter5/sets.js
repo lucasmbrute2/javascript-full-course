@@ -95,3 +95,6 @@ const arr = [
 
 const arrUniquer = [...new Set(arr)]; //we can use the spread to make this a list again.
 console.log(arrUniquer);
+
+//Couting the unique letters from my name :)
+console.log(new Set('Lucas Victor de Souza Dantas').size);
