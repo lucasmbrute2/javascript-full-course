@@ -109,3 +109,10 @@ const question = new Map([
 ]);
 
 console.log(question);
+
+console.log(Object.entries(restaurant.openingHours));
+
+// Other way is use the Object entries
+
+const hoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(hoursMap);
