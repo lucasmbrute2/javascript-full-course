@@ -68,6 +68,7 @@ console.log(rest.set(2, 'Lisbon, Portugal')); // The map will return updated
 rest
   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
   .set(true, 'value')
+  .set(2, 'dois')
   .set(new Map(), 'novo map')
   .set('open', 11)
   .set('close', 23)
@@ -78,3 +79,11 @@ console.log(rest);
 const time = 8;
 console.log(rest.get(time > rest.get(open) && time < rest.get('close')));
 //Its a powerful way but unreadable to get values with true or false
+
+// ====Methods from Map====
+
+console.log(rest.has('categories'));
+rest.delete(2);
+rest.clear(); //will delete all the elements from map
+console.log(rest);
+console.log(rest.size);
