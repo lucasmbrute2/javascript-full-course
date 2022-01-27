@@ -93,3 +93,19 @@ rest.clear();
 const arr = [1, 2];
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest.set(arr, 'array value'));
+
+console.log('===============MAPS ITERATION========================');
+
+//Another way to create a map
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Javascript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Try again'],
+]);
+
+console.log(question);
