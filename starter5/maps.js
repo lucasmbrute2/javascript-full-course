@@ -84,6 +84,12 @@ console.log(rest.get(time > rest.get(open) && time < rest.get('close')));
 
 console.log(rest.has('categories'));
 rest.delete(2);
-rest.clear(); //will delete all the elements from map
+// rest.clear(); //will delete all the elements from map
 console.log(rest);
 console.log(rest.size);
+
+//USING ARRAYS AND OBJECTS
+rest.clear();
+const arr = [1, 2];
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest.set(arr, 'array value'));
