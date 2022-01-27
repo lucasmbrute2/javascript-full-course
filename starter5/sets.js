@@ -75,3 +75,7 @@ orderSet.delete('Risotto');
 console.log(orderSet);
 
 //Set is good to store datas, you cant retrieve any data from there. Usually we use the method "has" to compare.
+
+for (const order of orderSet) console.log('i was iterated : ' + order);
+
+//Usefull example
