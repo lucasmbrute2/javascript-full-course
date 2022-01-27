@@ -79,3 +79,19 @@ console.log(orderSet);
 for (const order of orderSet) console.log('i was iterated : ' + order);
 
 //Usefull example
+
+//Converting a array to a UNIQUE ARRAY
+
+const arr = [
+  'Lucas',
+  'Guilherme',
+  'João',
+  'Marcelo',
+  'Erick',
+  'Thiago',
+  'Lucas',
+  'Guilherme',
+];
+
+const arrUniquer = [...new Set(arr)]; //we can use the spread to make this a list again.
+console.log(arrUniquer);
