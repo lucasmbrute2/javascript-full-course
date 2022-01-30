@@ -76,3 +76,12 @@ const annoucement =
 const annoucementFixed = annoucement.replaceAll('door', 'gate');
 // annoucementFixed = annoucement.replaceAll('/door/g', 'gate'); Another way with regex
 console.log(annoucementFixed);
+
+//Booleans
+const plane2 = 'Airbus A320neo';
+console.log(plane2.includes('A320'));
+console.log(plane2.includes('Boeing'));
+console.log(plane2.startsWith('Airb'));
+
+if (plane2.startsWith('Airbus') && plane2.endsWith('neo'))
+  console.log('Part of the NEW Airbus family');
