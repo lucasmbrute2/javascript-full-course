@@ -14,12 +14,12 @@ console.log('B737'.length);
 
 //======METHODS======
 
-//* IndexOf
+//** INDEXOF
 console.log(airline.indexOf('r')); //Getting the position of the letter in the string.
 console.log(airline.lastIndexOf('r')); //Getting the last ocurrency of the letter in the string
 console.log(airline.indexOf('Portugal')); // This will return 8 because the String Portugal starts in the index 8
 
-//* Slice
+//** SLICE
 console.log(airline.slice(4)); //This will start to extract in position 4
 console.log(airline.slice(4, 7)); //This will start to extract in position 4 since position 7
 
@@ -43,7 +43,7 @@ checkMiddleSeats('Lucas', '11B');
 checkMiddleSeats('Carlos', '23C');
 checkMiddleSeats('Marcelo', '3E');
 
-//* Lower or Upper case
+//** Lower or Upper case
 
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
@@ -77,7 +77,7 @@ const annoucementFixed = annoucement.replaceAll('door', 'gate');
 // annoucementFixed = annoucement.replaceAll('/door/g', 'gate'); Another way with regex
 console.log(annoucementFixed);
 
-//Booleans
+// **BOOLEANS
 const plane2 = 'Airbus A320neo';
 console.log(plane2.includes('A320'));
 console.log(plane2.includes('Boeing'));
@@ -85,3 +85,13 @@ console.log(plane2.startsWith('Airb'));
 
 if (plane2.startsWith('Airbus') && plane2.endsWith('neo'))
   console.log('Part of the NEW Airbus family');
+
+// **SPLIT
+
+const string22 = 'dladoa'.split(''); //Split all the string into elements inside an array
+
+console.log('a+very+nice+string'.split('+'));
+console.log('Lucas Souza'.split(' '));
+
+const [firstName, lastName] = 'Lucas Souza'.split(' ');
+console.log(firstName, lastName);
