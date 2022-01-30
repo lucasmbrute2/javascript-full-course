@@ -43,7 +43,7 @@ checkMiddleSeats('Lucas', '11B');
 checkMiddleSeats('Carlos', '23C');
 checkMiddleSeats('Marcelo', '3E');
 
-//Lower or Upper case
+//* Lower or Upper case
 
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
@@ -64,3 +64,15 @@ const normalizedEmail = loginEmail.toLowerCase().trim();
 console.log(normalizedEmail);
 
 if (email === normalizedEmail) console.log(`The e-mails are the same!`);
+
+// **REPLACE
+
+const priceGB = '288,97£';
+const priceUS = priceGB.replace(',', '.').replace('£', '$');
+console.log(priceUS);
+
+const annoucement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+const annoucementFixed = annoucement.replaceAll('door', 'gate');
+// annoucementFixed = annoucement.replaceAll('/door/g', 'gate'); Another way with regex
+console.log(annoucementFixed);
