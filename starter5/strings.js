@@ -26,3 +26,7 @@ console.log(airline.slice(4, 7)); //This will start to extract in position 4 sin
 //Slice without hard-code the position
 console.log(airline.slice(0, airline.indexOf(' '))); // Slice from positon 0 to blank splace's position
 console.log(airline.slice(airline.lastIndexOf(' ') + 1)); //Slice from back to front, in last blank space
+
+//Slice starting from the end
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
