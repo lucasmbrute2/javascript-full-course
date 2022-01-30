@@ -42,3 +42,16 @@ const checkMiddleSeats = (name, seat) => {
 checkMiddleSeats('Lucas', '11B');
 checkMiddleSeats('Carlos', '23C');
 checkMiddleSeats('Marcelo', '3E');
+
+//Lower or Upper case
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//Fixing the string
+
+const passenger = 'luCaS'; //we need fix this string, setting the first value upper case
+const lowerString = passenger.toLowerCase();
+const fixerFirstLetter = lowerString[0].toUpperCase() + lowerString.slice(1);
+
+console.log(fixerFirstLetter);
