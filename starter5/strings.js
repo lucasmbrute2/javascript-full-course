@@ -30,3 +30,15 @@ console.log(airline.slice(airline.lastIndexOf(' ') + 1)); //Slice from back to f
 //Slice starting from the end
 console.log(airline.slice(-2));
 console.log(airline.slice(1, -1));
+
+const checkMiddleSeats = (name, seat) => {
+  //B and E are middle Seats
+
+  const s = seat.slice(-1); //We get the last element
+  if (s !== 'E') console.log(`${name} is sitting in the middle`);
+  else console.log(`${name} isn't sitting in the middle`);
+};
+
+checkMiddleSeats('Lucas', '11B');
+checkMiddleSeats('Carlos', '23C');
+checkMiddleSeats('Marcelo', '3E');
