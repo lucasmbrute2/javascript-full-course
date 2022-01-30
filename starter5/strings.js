@@ -14,7 +14,11 @@ console.log('B737'.length);
 
 //======METHODS======
 
-//IndexOf
+//* IndexOf
 console.log(airline.indexOf('r')); //Getting the position of the letter in the string.
 console.log(airline.lastIndexOf('r')); //Getting the last ocurrency of the letter in the string
 console.log(airline.indexOf('Portugal')); // This will return 8 because the String Portugal starts in the index 8
+
+//* Slice
+console.log(airline.slice(4)); //This will start to extract in position 4
+console.log(airline.slice(4, 7)); //This will start to extract in position 4 since position 7
