@@ -106,8 +106,7 @@ const capitalizeName = name => {
 
   const arr = [];
   for (const n of splitedName) {
-    const fixedName = n[0].toUpperCase() + n.slice(1);
-    arr.push(fixedName);
+    arr.push(n.replace(n[0], n[0].toUpperCase()));
   }
   console.log(arr.join(' '));
 };
