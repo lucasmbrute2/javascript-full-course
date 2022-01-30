@@ -113,3 +113,19 @@ const capitalizeName = name => {
 
 capitalizeName('lucas victor de souza dantas');
 capitalizeName('cleonice silva de souza');
+
+//** PADDING
+
+const message = 'Go to gate 23';
+console.log(message.padStart(25, '+')); // The string will get the length 25 with the element specified (second parameter)
+console.log('Lucas Victor'.padStart(25, '+'));
+console.log(message.padStart(25, '+').padEnd(30, '+')); // We can do the same thing in the end
+
+const maskCreditCard = function (number) {
+  const str = number + ''; //coverting the number to string
+
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(123676852498));
