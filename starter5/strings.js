@@ -95,3 +95,22 @@ console.log('Lucas Souza'.split(' '));
 
 const [firstName, lastName] = 'Lucas Souza'.split(' ');
 console.log(firstName, lastName);
+
+//** JOIN
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = name => {
+  const splitedName = name.split(' ');
+
+  const arr = [];
+  for (const n of splitedName) {
+    const fixedName = n[0].toUpperCase() + n.slice(1);
+    arr.push(fixedName);
+  }
+  console.log(arr.join(' '));
+};
+
+capitalizeName('lucas victor de souza dantas');
+capitalizeName('cleonice silva de souza');
