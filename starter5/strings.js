@@ -55,3 +55,12 @@ const lowerString = passenger.toLowerCase();
 const fixerFirstLetter = lowerString[0].toUpperCase() + lowerString.slice(1);
 
 console.log(fixerFirstLetter);
+
+//Check Email
+const email = 'lucasmbrute614@gmail.com';
+const loginEmail = '   Lucasmbrute614@Gmail.com  \n';
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+
+if (email === normalizedEmail) console.log(`The e-mails are the same!`);
