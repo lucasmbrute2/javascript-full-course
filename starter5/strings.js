@@ -22,3 +22,7 @@ console.log(airline.indexOf('Portugal')); // This will return 8 because the Stri
 //* Slice
 console.log(airline.slice(4)); //This will start to extract in position 4
 console.log(airline.slice(4, 7)); //This will start to extract in position 4 since position 7
+
+//Slice without hard-code the position
+console.log(airline.slice(0, airline.indexOf(' '))); // Slice from positon 0 to blank splace's position
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); //Slice from back to front, in last blank space
