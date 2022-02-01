@@ -22,3 +22,9 @@ transformer('Javascript is the best language', upperFirstWord); //Notice that we
 
 console.log('============================');
 transformer('Javascript is the best language', oneWord);
+
+const high5 = function () {
+  console.log('Hi :)');
+};
+
+document.body.addEventListener('click', high5);
