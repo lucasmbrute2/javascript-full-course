@@ -38,3 +38,20 @@ So, instead of just doing this, we can make THIS:
 */
 book.call(euroWings, 23, 'Bruna Silva'); // The CALL method apply the THIS keyword to the object, in this case "euroWings"
 console.log(euroWings);
+book.call(gol, 267, 'Lucas Again');
+console.log(gol);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 850, 'Lucas Swiss');
+console.log(swiss);
+
+//APPLY method
+//This method does the same thing, the only difference is that doest not receive a list of arguments:
+const flightData = [320, 'Lucas Apply'];
+book.apply(swiss, flightData);
+console.log(swiss);
