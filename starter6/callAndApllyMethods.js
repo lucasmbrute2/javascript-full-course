@@ -36,4 +36,5 @@ book(23, 'Bruna Silva');
 
 So, instead of just doing this, we can make THIS:
 */
-book.call(euroWings, 23, 'Bruna Silva');
+book.call(euroWings, 23, 'Bruna Silva'); // The CALL method apply the THIS keyword to the object, in this case "euroWings"
+console.log(euroWings);
