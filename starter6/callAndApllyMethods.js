@@ -55,3 +55,6 @@ console.log(swiss);
 const flightData = [320, 'Lucas Apply'];
 book.apply(swiss, flightData);
 console.log(swiss);
+//But we can use the modern JS:
+book.call(swiss, ...flightData);
+console.log(swiss);
