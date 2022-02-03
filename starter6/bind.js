@@ -33,3 +33,6 @@ const bookLX = book.bind(swiss);
 const bookGL = book.bind(gol);
 
 bookEW(45, 'Lucas Bind');
+bookLX(906, 'LX book');
+bookGL(21, 'GL book');
+const binded = book.call(book, 200, 'Book binded'); //You can bind the THIS keyword for itself, in this case "book" of line 28.
