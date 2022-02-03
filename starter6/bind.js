@@ -64,3 +64,11 @@ console.log(addTax(0.1, 200));
 const addVAT = addTax.bind(null, 0.23); //We don't care about the THIS keyword in this case, that's why the first parameter is null. So we create a new function from addTax passing a first default value for a new function addVAT
 console.log(addVAT(200)); //Now we call the function passing the last one missing parameter
 console.log(addVAT(100)); //Now we call the function passing the last one missing parameter
+
+const addVat2 = function (rate = 0.23) {
+  return function (value) {
+    console.log('=====ADD vat without BIND======');
+    return value + value * rate;
+  };
+};
+console.log(addVat2(0.1)(100));
