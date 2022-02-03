@@ -35,4 +35,10 @@ const bookGL = book.bind(gol);
 bookEW(45, 'Lucas Bind');
 bookLX(906, 'LX book');
 bookGL(21, 'GL book');
-const binded = book.call(book, 200, 'Book binded'); //You can bind the THIS keyword for itself, in this case "book" of line 28.
+
+// const binded = book.call(book, 200, 'Book binded'); //You can bind the THIS keyword for itself, in this case "book" of line 28.
+
+//In bind we can pass another arguments after the function, in this case, setting the first argument wit 23 and passing the name later.
+const bookEW23 = book.bind(euroWings, 23);
+bookEW23('Martha');
+bookEW23('Jonas');
