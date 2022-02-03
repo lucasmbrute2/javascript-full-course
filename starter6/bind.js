@@ -42,3 +42,17 @@ bookGL(21, 'GL book');
 const bookEW23 = book.bind(euroWings, 23);
 bookEW23('Martha');
 bookEW23('Jonas');
+
+//===========ANOTHER EXAMPLES TO USE BIND METHOD=========
+//* With Event Listeners
+gol.planes = 300;
+gol.buyPlane = function () {
+  console.log(this); //This THIS keyword are poiting to the handler function, in this case the button.
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', gol.buyPlane.bind(gol));
