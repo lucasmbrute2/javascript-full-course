@@ -16,7 +16,7 @@
 // 3: C++
 // (Write option number)
 // 1.2. Based on the input number, update the 'answers' array property. For
-// example, if the option is 3, increase the value at position 3 of the array by
+// example, if the option is 3, increase the value at position 3 of the array by 1.
 // 1. Make sure to check if the input is a number and if the number makes
 // sense (e.g. answer 52 wouldn't make sense, right?)
 // 2. Call this method whenever the user clicks the "Answer poll" button.
@@ -30,10 +30,35 @@
 // 5. Bonus: Use the 'displayResults' method to display the 2 arrays in the test
 // data. Use both the 'array' and the 'string' option. Do not put the arrays in the poll
 // object! So what should the this keyword look like in this situation?
+//  Data 1: [5, 2, 3]
+//  Data 2: [1, 5, 3, 9, 6, 1]
 
 const poll = {
   question: 'What is your favourite programming language?',
   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
   // This generates [0, 0, 0, 0]. More in the next section!
   answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    const answer = +prompt(`${this.question}\n${this.options.join('\n')}`);
+
+    if (answer >= 0 && answer <= 3) {
+      this.answers[answer]++;
+      return this.displayResults();
+    }
+    return console.log('Please tell a valid number!');
+  },
+
+  displayResults(type = 'array') {
+    type === 'array' && console.log(this.answers);
+    type === 'string' && console.log(`Poll results are ${[...this.answers]}`);
+  },
 };
+
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+//5
+
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
