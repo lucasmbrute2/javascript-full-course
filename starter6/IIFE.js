@@ -14,3 +14,10 @@ runOnce();
 
 //Arrow Function
 (() => console.log('THIS also will never run again'))();
+
+//To make a variable private in ES6
+
+{
+  const isPrivate = 23;
+}
+console.log(isPrivate);
