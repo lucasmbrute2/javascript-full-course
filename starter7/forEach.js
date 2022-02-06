@@ -28,3 +28,16 @@ movements.forEach((mov, i) => {
   if (mov > 0) console.log(`Movement ${i + 1}: You deposited ${mov}`);
   else console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
 });
+
+//**FOREACH IN MAPS AND SETS
+
+//Map
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach((value, key, map) => {
+  console.log(`${key}: ${value}`);
+});
