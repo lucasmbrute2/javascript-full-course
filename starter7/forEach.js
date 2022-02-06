@@ -31,7 +31,7 @@ movements.forEach((mov, i) => {
 
 //**FOREACH IN MAPS AND SETS
 
-//Map
+//MAP
 const currencies = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
@@ -40,4 +40,11 @@ const currencies = new Map([
 
 currencies.forEach((value, key, map) => {
   console.log(`${key}: ${value}`);
+});
+
+//SET
+console.log('=============SET=====================');
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+currenciesUnique.forEach((value, _, map) => {
+  console.log(`${value}`); //The second paremeter from forEach doesn't make sense in SET, so we can use _.
 });
