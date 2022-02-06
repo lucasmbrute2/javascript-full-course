@@ -77,6 +77,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
+console.log('================SLICE==================');
 //**SLICE
 //Create a new array based on original cutting off the especified indexes.
 console.log(arr.slice(2));
@@ -84,3 +85,11 @@ console.log(arr.slice(2, 4));
 console.log(arr.slice(-2)); // Starts from end.
 console.log(arr.slice(1, -2)); // Starts from end.
 console.log(arr.slice()); // Creating a shallow copy of the array. Is the same thing to do "[...arr]"
+
+console.log('================SPLICE==================');
+//**SPLICE
+//works simillar with slice, but it does actually change the origial array
+console.log(arr.splice(2));
+arr.splice(-1); //Removing the last element
+console.log(arr); //Notice that original array was muted.
+console.log(arr.splice(1, 2)); // The second parameter defines the number of deleted elements. In this case we start in element 1, deleting 2 elements forward.
