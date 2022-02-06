@@ -102,3 +102,12 @@ const arr2 = ['j', 'i', 'h', 'g', 'f'];
 console.log(`Before mutate ${arr2}`);
 console.log(arr2.reverse());
 console.log(`After mutate ${arr2}`);
+
+console.log('===============CONCAT=====================');
+//**CONCAT
+//Concat join two arrays turning into one. It doesn't mutate the original array.
+
+const letters = arr.concat(arr2);
+console.log(letters);
+//We can do it another way
+console.log([...arr, ...arr2]);
