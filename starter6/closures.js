@@ -22,3 +22,28 @@ booker();
 //**Closure makes sure that a function does never lose connection to the variables that existed at the function's birthplace.
 
 //**Apesar da 'secureBooking' já ter sido retornada (ou seja, já ter sido retirada do Call Stack) a Closure faz com que a função 'booker' continue tendo acesso ao ambiente de variáveis da função 'secureBooking'
+
+//WE DONT NEED RETURN A FUNCTION FROM ANOTHER FUNCTION IN ORDER TO CREATE A CLORUSE.
+
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+g();
+f(); //Perceba que mesmo a função "g" já tendo sido retornada, nós conseguimos acessar o ambiente de variáveis atráves da função "f", por causa da Closure.
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+console.log('==================Re-assigning F function=============');
+
+h(); //Aqui nós estamos atribuindo outro valor
+f();
