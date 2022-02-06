@@ -47,3 +47,21 @@ console.log('==================Re-assigning F function=============');
 
 h(); //Aqui nós estamos atribuindo outro valor
 f();
+
+//Another example
+
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(() => {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000); //A única forma dessas variáves ainda terem acesso as variáveis parentes é graças ao Closure.
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+boardPassengers(180, 3);
+//Proving that Closure have priority about over the scope chain
+const perGroup = 1000;
+boardPassengers(180, 3);
