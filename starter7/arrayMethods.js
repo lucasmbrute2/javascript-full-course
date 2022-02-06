@@ -111,3 +111,9 @@ const letters = arr.concat(arr2);
 console.log(letters);
 //We can do it another way
 console.log([...arr, ...arr2]);
+
+console.log('===============JOIN========================');
+//**JOIN
+//Join all the elements of an array using the specified separator.
+
+console.log(letters.join('-'));
