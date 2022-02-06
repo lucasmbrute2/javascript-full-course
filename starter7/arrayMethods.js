@@ -93,3 +93,12 @@ console.log(arr.splice(2));
 arr.splice(-1); //Removing the last element
 console.log(arr); //Notice that original array was muted.
 console.log(arr.splice(1, 2)); // The second parameter defines the number of deleted elements. In this case we start in element 1, deleting 2 elements forward.
+
+console.log('================REVERSE==================');
+//**REVERSE
+//Reverse the order of array mutating it.
+
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(`Before mutate ${arr2}`);
+console.log(arr2.reverse());
+console.log(`After mutate ${arr2}`);
