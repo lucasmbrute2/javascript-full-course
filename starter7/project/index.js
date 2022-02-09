@@ -75,3 +75,14 @@ const displayMovements = function (movements) {
   });
 };
 displayMovements(account1.movements);
+
+const convertCoin = function (movements) {
+  let eurToUsd = 1.1;
+  let brToUsd = 5.3;
+
+  const coin = eurToUsd;
+
+  return movements.map(mov => (mov * coin).toFixed(2));
+};
+
+convertCoin(account1.movements);
