@@ -86,3 +86,17 @@ const convertCoin = function (movements) {
 };
 
 convertCoin(account1.movements);
+
+const username = function (accounts) {
+  accounts.forEach(acc => {
+    //This function are creating a property 'username' in each object 'account'
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+username(accounts);
+console.log(accounts);
