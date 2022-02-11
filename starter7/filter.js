@@ -54,3 +54,18 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//Filter
+const deposits = movements.filter(mov => mov > 0);
+console.log(deposits);
+
+//Using for loop
+
+const depositFor = [];
+for (const mov of movements) if (mov > 0) depositFor.push(mov);
+console.log({ depositFor });
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log({ withdrawals });
