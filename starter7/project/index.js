@@ -100,3 +100,21 @@ const username = function (accounts) {
 
 username(accounts);
 console.log(accounts);
+
+function calcPrintBalance(movements) {
+  const balance = movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = balance + '$';
+}
+
+calcPrintBalance(account1.movements);
+
+//Getting a maximum value
+
+function displayTheBiggest(movements) {
+  return movements.reduce((acc, cur) => {
+    if (cur > acc) return (acc = cur);
+    else return acc;
+  }, movements[0]);
+}
+
+console.log(displayTheBiggest(account1.movements));
