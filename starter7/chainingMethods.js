@@ -67,3 +67,14 @@ const currencies = new Map([
 ]);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const convertDepositsToDol = movements
+  .filter(mov => mov > 0)
+  //   .map(mov => mov * 1.1)
+  .map((mov, index, arr) => {
+    console.log(arr); //This is a nice way to debug.In the next method, we call "arr" argument and console it.
+    return mov * 1.1;
+  })
+  .reduce((acc, cur) => acc + cur) // The reduce method returns a value, to make chain methods needs to return an array
+  .toFixed(2);
+console.log(convertDepositsToDol);
