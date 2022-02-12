@@ -67,7 +67,7 @@ const displayMovements = function (movements) {
         <div class="movements__type movements__type--${type}">${
       index + 1
     } ${type}</div>
-        <div class="movements__value">${mov}$</div>
+        <div class="movements__value">${mov} €</div>
     </div>
     `;
 
@@ -103,7 +103,7 @@ console.log(accounts);
 
 function calcPrintBalance(movements) {
   const balance = movements.reduce((acc, cur) => acc + cur, 0);
-  labelBalance.textContent = balance + '$';
+  labelBalance.textContent = balance + '€';
 }
 
 calcPrintBalance(account1.movements);
@@ -118,3 +118,27 @@ function displayTheBiggest(movements) {
 }
 
 console.log(displayTheBiggest(account1.movements));
+
+function calcDisplaySummary(movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumIn.textContent = incomes + '€';
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, cur) => acc + cur, 0);
+
+  labelSumOut.textContent = Math.abs(out) + '€';
+
+  const interest =
+    movements
+      .filter(mov => mov > 0)
+      .map(deposit => (deposit * 1.2) / 100)
+      .filter(int => int >= 1)
+      .reduce((acc, cur) => acc + cur, 0)
+      .toFixed(2) + '€';
+
+  labelSumInterest.textContent = interest;
+}
+calcDisplaySummary(account1.movements);
