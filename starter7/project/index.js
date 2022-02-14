@@ -180,15 +180,17 @@ btnTransfer.addEventListener('click', e => {
 
   if (to && amount) {
     if (amount > 0) {
-      currentAccount.movements.push(-amount); //Getting of the amount of the current account
-
       const accountToTransfer = accounts.find(acc => acc.username === to);
-      accountToTransfer.movements.push(amount);
 
       if (accountToTransfer) {
+        currentAccount.movements.push(-amount); //Getting of the amount of the current account
+        accountToTransfer.movements.push(amount);
+
         calcDisplayBalance(currentAccount.movements);
         displayMovements(currentAccount.movements);
-      }
+
+        alert('Done!');
+      } else alert('User was not found.');
 
       //Cleaning the fields
       inputTransferTo.value = '';
