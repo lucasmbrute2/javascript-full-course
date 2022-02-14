@@ -202,9 +202,6 @@ btnTransfer.addEventListener('click', e => {
       //Cleaning the fields
       inputTransferTo.value = '';
       inputTransferAmount.value = '';
-
-      console.log(currentAccount.movements);
-      console.log(accounts);
     } else alert('Please tell a valid amount!');
   } else alert('I wanna see your words in all fields :(');
 });
