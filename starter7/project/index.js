@@ -102,22 +102,22 @@ function displayTheBiggest(movements) {
 
 console.log(displayTheBiggest(account1.movements));
 
-function calcDisplaySummary(movements) {
-  const incomes = movements
+function calcDisplaySummary(account) {
+  const incomes = account.movements
     .filter(mov => mov > 0)
     .reduce((acc, cur) => acc + cur, 0);
   labelSumIn.textContent = incomes + '€';
 
-  const out = movements
+  const out = account.movements
     .filter(mov => mov < 0)
     .reduce((acc, cur) => acc + cur, 0);
 
   labelSumOut.textContent = Math.abs(out) + '€';
 
   const interest =
-    movements
+    account.movements
       .filter(mov => mov > 0)
-      .map(deposit => (deposit * 1.2) / 100)
+      .map(deposit => (deposit * account.interestRate) / 100)
       .filter(int => int >= 1)
       .reduce((acc, cur) => acc + cur, 0)
       .toFixed(2) + '€';
@@ -164,6 +164,6 @@ btnLogin.addEventListener('click', e => {
 
     displayMovements(currentAccount.movements);
     calcDisplayBalance(currentAccount.movements);
-    calcDisplaySummary(currentAccount.movements);
+    calcDisplaySummary(currentAccount);
   }
 });
