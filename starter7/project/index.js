@@ -86,6 +86,7 @@ const convertCoin = function (movements) {
 
 convertCoin(account1.movements);
 
+//DISPLAYING THE BALANCE VALUE
 function calcDisplayBalance(movements) {
   const balance = movements.reduce((acc, cur) => acc + cur, 0);
   labelBalance.textContent = balance + '€';
@@ -102,6 +103,7 @@ function displayTheBiggest(movements) {
 
 console.log(displayTheBiggest(account1.movements));
 
+//THE BOTTOM OF THE SITE
 function calcDisplaySummary(account) {
   const incomes = account.movements
     .filter(mov => mov > 0)
@@ -125,6 +127,7 @@ function calcDisplaySummary(account) {
   labelSumInterest.textContent = interest;
 }
 
+//CREATING A USERNAME
 const username = function (accounts) {
   accounts.forEach(acc => {
     //This function are creating a property 'username' in each object 'account'
@@ -140,7 +143,7 @@ username(accounts);
 console.log(accounts);
 
 //Event Handler
-
+//LOGIN ACCOUNT
 let currentAccount;
 let autorization;
 btnLogin.addEventListener('click', e => {
@@ -166,4 +169,31 @@ btnLogin.addEventListener('click', e => {
     calcDisplayBalance(currentAccount.movements);
     calcDisplaySummary(currentAccount);
   }
+});
+
+//TRANSFERING THE MONEY
+btnTransfer.addEventListener('click', e => {
+  e.preventDefault();
+
+  const to = inputTransferTo.value;
+  const amount = Number(inputTransferAmount.value);
+
+  if (to && amount) {
+    if (amount > 0) {
+      currentAccount.movements.push(-amount); //Getting of the amount of the current account
+
+      const accountToTransfer = accounts.find(acc => acc.username === to);
+      accountToTransfer.movements.push(amount);
+
+      calcDisplayBalance(currentAccount.movements);
+      displayMovements(currentAccount.movements);
+
+      //Cleaning the fields
+      inputTransferTo.value = '';
+      inputTransferAmount.value = '';
+
+      console.log(currentAccount.movements);
+      console.log(accounts);
+    } else alert('Please tell a valid amount!');
+  } else alert('I wanna see your words in all fields :(');
 });
