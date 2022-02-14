@@ -185,8 +185,10 @@ btnTransfer.addEventListener('click', e => {
       const accountToTransfer = accounts.find(acc => acc.username === to);
       accountToTransfer.movements.push(amount);
 
-      calcDisplayBalance(currentAccount.movements);
-      displayMovements(currentAccount.movements);
+      if (accountToTransfer) {
+        calcDisplayBalance(currentAccount.movements);
+        displayMovements(currentAccount.movements);
+      }
 
       //Cleaning the fields
       inputTransferTo.value = '';
