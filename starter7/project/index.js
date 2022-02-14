@@ -87,9 +87,9 @@ const convertCoin = function (movements) {
 convertCoin(account1.movements);
 
 //DISPLAYING THE BALANCE VALUE
-function calcDisplayBalance(movements) {
-  const balance = movements.reduce((acc, cur) => acc + cur, 0);
-  labelBalance.textContent = balance + '€';
+function calcDisplayBalance(acc) {
+  acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = acc.balance + '€';
 }
 
 //Getting a maximum value
@@ -166,7 +166,7 @@ btnLogin.addEventListener('click', e => {
     inputLoginPin.blur();
 
     displayMovements(currentAccount.movements);
-    calcDisplayBalance(currentAccount.movements);
+    calcDisplayBalance(currentAccount);
     calcDisplaySummary(currentAccount);
   }
 });
@@ -182,7 +182,7 @@ btnTransfer.addEventListener('click', e => {
     if (amount > 0) {
       const accountToTransfer = accounts.find(acc => acc.username === to);
 
-      if (accountToTransfer) {
+      if (accountToTransfer && currentAccount.balance >= amount) {
         currentAccount.movements.push(-amount); //Getting of the amount of the current account
         accountToTransfer.movements.push(amount);
 
