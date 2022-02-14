@@ -74,7 +74,6 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html); //Here we are adding a template from JS.
   });
 };
-displayMovements(account1.movements);
 
 const convertCoin = function (movements) {
   let eurToUsd = 1.1;
@@ -87,12 +86,10 @@ const convertCoin = function (movements) {
 
 convertCoin(account1.movements);
 
-function calcPrintBalance(movements) {
+function calcDisplayBalance(movements) {
   const balance = movements.reduce((acc, cur) => acc + cur, 0);
   labelBalance.textContent = balance + '€';
 }
-
-calcPrintBalance(account1.movements);
 
 //Getting a maximum value
 
@@ -127,7 +124,6 @@ function calcDisplaySummary(movements) {
 
   labelSumInterest.textContent = interest;
 }
-calcDisplaySummary(account1.movements);
 
 const username = function (accounts) {
   accounts.forEach(acc => {
@@ -162,5 +158,9 @@ btnLogin.addEventListener('click', e => {
     }`;
 
     containerApp.style.opacity = '100';
+
+    displayMovements(currentAccount.movements);
+    calcDisplayBalance(currentAccount.movements);
+    calcDisplaySummary(currentAccount.movements);
   }
 });
