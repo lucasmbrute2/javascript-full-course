@@ -87,20 +87,6 @@ const convertCoin = function (movements) {
 
 convertCoin(account1.movements);
 
-const username = function (accounts) {
-  accounts.forEach(acc => {
-    //This function are creating a property 'username' in each object 'account'
-    acc.username = acc.owner
-      .toLowerCase()
-      .split(' ')
-      .map(name => name[0])
-      .join('');
-  });
-};
-
-username(accounts);
-console.log(accounts);
-
 function calcPrintBalance(movements) {
   const balance = movements.reduce((acc, cur) => acc + cur, 0);
   labelBalance.textContent = balance + '€';
@@ -142,3 +128,29 @@ function calcDisplaySummary(movements) {
   labelSumInterest.textContent = interest;
 }
 calcDisplaySummary(account1.movements);
+
+const username = function (accounts) {
+  accounts.forEach(acc => {
+    //This function are creating a property 'username' in each object 'account'
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+username(accounts);
+console.log(accounts);
+
+//Event Handler
+
+let currentAccount;
+let autorization;
+btnLogin.addEventListener('click', e => {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+});
