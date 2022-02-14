@@ -75,6 +75,12 @@ const displayMovements = function (movements) {
   });
 };
 
+function updateUI(currentAccount) {
+  displayMovements(currentAccount.movements);
+  calcDisplayBalance(currentAccount);
+  calcDisplaySummary(currentAccount);
+}
+
 const convertCoin = function (movements) {
   let eurToUsd = 1.1;
   let brToUsd = 5.3;
@@ -165,9 +171,7 @@ btnLogin.addEventListener('click', e => {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
-    displayMovements(currentAccount.movements);
-    calcDisplayBalance(currentAccount);
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
   }
 });
 
@@ -182,14 +186,18 @@ btnTransfer.addEventListener('click', e => {
     if (amount > 0) {
       const accountToTransfer = accounts.find(acc => acc.username === to);
 
-      if (accountToTransfer && currentAccount.balance >= amount) {
+      if (
+        accountToTransfer &&
+        currentAccount.balance >= amount &&
+        to !== currentAccount.username
+      ) {
         currentAccount.movements.push(-amount); //Getting of the amount of the current account
         accountToTransfer.movements.push(amount);
 
         calcDisplayBalance(currentAccount.movements);
         displayMovements(currentAccount.movements);
 
-        alert('Done!');
+        alert('Transfer valid!');
       } else alert('User was not found.');
 
       //Cleaning the fields
