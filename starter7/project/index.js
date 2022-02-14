@@ -163,7 +163,6 @@ btnLogin.addEventListener('click', e => {
     calcDisplayBalance(currentAccount.movements);
     calcDisplaySummary(currentAccount.movements);
 
-    inputLoginUsername.value = '';
-    inputLoginPin.value = '';
+    inputLoginUsername.value = inputLoginPin.value = '';
   }
 });
