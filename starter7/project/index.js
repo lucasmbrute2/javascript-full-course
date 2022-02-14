@@ -153,4 +153,14 @@ btnLogin.addEventListener('click', e => {
   currentAccount = accounts.find(
     acc => acc.username === inputLoginUsername.value
   );
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    autorization = true;
+
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    containerApp.style.opacity = '100';
+  }
 });
