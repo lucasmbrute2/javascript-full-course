@@ -194,8 +194,7 @@ btnTransfer.addEventListener('click', e => {
         currentAccount.movements.push(-amount); //Getting of the amount of the current account
         accountToTransfer.movements.push(amount);
 
-        calcDisplayBalance(currentAccount.movements);
-        displayMovements(currentAccount.movements);
+        updateUI(currentAccount);
 
         alert('Transfer valid!');
       } else alert('User was not found.');
