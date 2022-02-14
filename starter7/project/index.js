@@ -200,8 +200,7 @@ btnTransfer.addEventListener('click', e => {
       } else alert('User was not found.');
 
       //Cleaning the fields
-      inputTransferTo.value = '';
-      inputTransferAmount.value = '';
+      inputTransferTo.value = inputTransferAmount.value = '';
     } else alert('Please tell a valid amount!');
   } else alert('I wanna see your words in all fields :(');
 });
