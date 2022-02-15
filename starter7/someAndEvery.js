@@ -70,3 +70,11 @@ console.log(anyDeposits);
 
 //EVERY
 console.log(movements.every(mov => mov > 0)); //Checks if all the values corresponds to the condiditon
+
+//Separate callback
+//You can use the callback in a separate way
+
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
