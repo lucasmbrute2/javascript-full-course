@@ -205,6 +205,26 @@ btnTransfer.addEventListener('click', e => {
   } else alert('I wanna see your words in all fields :(');
 });
 
+//LOAN FEATURE
+
+btnLoan.addEventListener('click', e => {
+  e.preventDefault();
+
+  const amountInput = Number(inputLoanAmount.value);
+
+  if (
+    amountInput > 0 &&
+    currentAccount.movements.some(mov => mov >= amountInput * 0.1)
+  ) {
+    currentAccount.movements.push(amountInput);
+    inputLoanAmount.value = '';
+    updateUI(currentAccount);
+  } //In our business rule, the user can only take a loean if has a account movement.
+  else {
+    alert("You don't have the requirements.");
+  }
+});
+
 //CLOSING A ACCOUNT
 
 btnClose.addEventListener('click', e => {
