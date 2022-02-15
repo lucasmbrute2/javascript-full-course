@@ -63,7 +63,10 @@ console.log(movements);
 //EQUALITY
 console.log(movements.includes(-130)); // This will return true or false if has the value "-130" in the array.
 
-//CONDITION
+//SOME: CONDITION
 const anyDeposits = movements.some(value => value > 150);
 console.log(anyDeposits);
 //Like the includes, the some method will return true or false with a condition.
+
+//EVERY
+console.log(movements.every(mov => mov > 0)); //Checks if all the values corresponds to the condiditon
