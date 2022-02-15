@@ -204,3 +204,24 @@ btnTransfer.addEventListener('click', e => {
     } else alert('Please tell a valid amount!');
   } else alert('I wanna see your words in all fields :(');
 });
+
+//CLOSING A ACCOUNT
+
+btnClose.addEventListener('click', e => {
+  e.preventDefault();
+
+  const userInput = inputCloseUsername.value;
+  const userPin = Number(inputClosePin.value);
+
+  if (userInput === currentAccount.username && userPin === currentAccount.pin) {
+    const index = accounts.findIndex(user => user.username === userInput);
+    accounts.splice(index, 1);
+
+    inputCloseUsername.value = inputClosePin.value = '';
+
+    containerApp.style.opacity = '0';
+    currentAccount = '';
+
+    alert(`Account deleted with success!`);
+  } else alert('Some field is wrong.');
+});
