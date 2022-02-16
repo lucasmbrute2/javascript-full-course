@@ -257,3 +257,13 @@ function countingAllMovements(accounts) {
 }
 
 console.log(countingAllMovements(accounts));
+
+//**FlatMap
+
+function countingAllMovements2(accounts) {
+  const accountMovements = accounts
+    .flatMap(acc => acc.movements) //Flatmap combines the Map with flat. Flat happens in the end.
+    .reduce((acc, cur) => acc + cur, 0);
+  return accountMovements;
+}
+console.log(countingAllMovements2(accounts));
