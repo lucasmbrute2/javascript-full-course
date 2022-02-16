@@ -245,3 +245,15 @@ btnClose.addEventListener('click', e => {
     alert(`Account deleted with success!`);
   } else alert('Some field is wrong.');
 });
+
+//COUNTING ALL THE MOVEMENTS OF ALL ACCOUNTS
+//**Flat
+function countingAllMovements(accounts) {
+  const accountMovements = accounts
+    .map(acc => acc.movements)
+    .flat() //Flat method are joining all elementes in one array.
+    .reduce((acc, cur) => acc + cur, 0);
+  return accountMovements;
+}
+
+console.log(countingAllMovements(accounts));
