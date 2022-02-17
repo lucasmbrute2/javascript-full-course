@@ -270,5 +270,11 @@ function countingAllMovements2(accounts) {
 }
 console.log(countingAllMovements2(accounts));
 
+let sorted = false;
 //Sorting the movementes
-btnSort.addEventListener('click', () => {});
+btnSort.addEventListener('click', e => {
+  e.preventDefault();
+
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
