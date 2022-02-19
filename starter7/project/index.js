@@ -292,3 +292,8 @@ labelBalance.addEventListener('click', () => {
   console.log(movementesUI2.map(cur => cur.textContent.replace('€', '')));
 });
 ('');
+
+//====================================
+//EXCERCIES::
+
+//*1 CALCULATE HOW MUCH HAS BEEN DEPOSITED IN TOTAL IN THE BANK (ALL ACCOUNTS)
