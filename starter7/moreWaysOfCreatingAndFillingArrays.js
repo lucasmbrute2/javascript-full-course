@@ -14,5 +14,5 @@ console.log(x)//Notice that entire array was filled with this method.
 
 //Thats it? No, we can especify a second parameter:
 const y = new Array(7)
-y.fill(5,2)
-console.log(y) //We can especify the starter index
+y.fill(5,2,6)
+console.log(y) //We can especify the starter and final index 
