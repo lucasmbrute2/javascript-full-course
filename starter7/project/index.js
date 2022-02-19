@@ -281,6 +281,10 @@ btnSort.addEventListener('click', e => {
 
 //EXAMPLE --- IN THIS EXAMPLE WE GONNA SIMULATE THAT WE DONT HAVE A LIST OF MOVEMENTS
 labelBalance.addEventListener('click', () => {
-  const movementesUI = document.querySelectorAll('.movements__value');
-  console.log(movementesUI); //Notice that a Nodelist is returned
+  const movementesUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    cur => Number(cur.textContent.replace('€', ''))
+  );
+  console.log(movementesUI); //Notice that a Nodelist is returned, we can only iterate this array because Array.from()
 });
+('');
