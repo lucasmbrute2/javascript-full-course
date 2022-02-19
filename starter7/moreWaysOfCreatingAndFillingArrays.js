@@ -11,3 +11,8 @@ console.log(x)// This wil return a empty array with length 8, cuz we just pass 1
 //So, what is it for ? 
 x.fill(3)
 console.log(x)//Notice that entire array was filled with this method.
+
+//Thats it? No, we can especify a second parameter:
+const y = new Array(7)
+y.fill(5,2)
+console.log(y) //We can especify the starter index
