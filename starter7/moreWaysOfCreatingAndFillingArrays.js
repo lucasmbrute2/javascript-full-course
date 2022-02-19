@@ -25,3 +25,10 @@ console.log(arr)
 
 const z = Array.from({ length: 7 }, ()=>1)
 console.log(z) // This is the same thing to do new Array()
+
+const j = Array.from({ length: 7 },(cur,index)=> index+1) //This callback function its like a "map" method.
+console.log(j)
+
+//Creating a array with 100 dice rolls
+const arrayOfRandomDiceRolls = Array.from({ length: 100 },()=> Math.floor(Math.random()* (6-1 +1)) + 1)
+console.log(arrayOfRandomDiceRolls)
