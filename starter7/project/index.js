@@ -278,3 +278,8 @@ btnSort.addEventListener('click', e => {
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
 });
+
+//EXAMPLE --- IN THIS EXAMPLE WE GONNA SIMULATE THAT WE DONT HAVE A LIST OF MOVEMENTS
+labelBalance.addEventListener('click', () => {
+  const movementesUI = document.querySelectorAll('.movementes__value');
+});
