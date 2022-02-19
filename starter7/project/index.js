@@ -286,5 +286,9 @@ labelBalance.addEventListener('click', () => {
     cur => Number(cur.textContent.replace('€', ''))
   );
   console.log(movementesUI); //Notice that a Nodelist is returned, we can only iterate this array because Array.from()
+
+  //Another way to do this:
+  const movementesUI2 = [...document.querySelectorAll('.movements__value')];
+  console.log(movementesUI2.map(cur => cur.textContent.replace('€', '')));
 });
 ('');
