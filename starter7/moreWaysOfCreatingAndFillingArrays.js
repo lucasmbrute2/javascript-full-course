@@ -20,3 +20,8 @@ console.log(y) //We can especify the starter and final index
 //Remeber that fill method DOES MUTATE the arr.
 arr.fill(2)
 console.log(arr)
+
+//Array.from
+
+const z = Array.from({ length: 7 }, ()=>1)
+console.log(z) // This is the same thing to do new Array()
