@@ -297,3 +297,9 @@ labelBalance.addEventListener('click', () => {
 //EXCERCIES::
 
 //*1 CALCULATE HOW MUCH HAS BEEN DEPOSITED IN TOTAL IN THE BANK (ALL ACCOUNTS)
+
+const bankDepositsSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((acc, cur) => acc + cur, 0);
+console.log(bankDepositsSum);
