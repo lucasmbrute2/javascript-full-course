@@ -16,3 +16,7 @@ console.log(x)//Notice that entire array was filled with this method.
 const y = new Array(7)
 y.fill(5,2,6)
 console.log(y) //We can especify the starter and final index 
+
+//Remeber that fill method DOES MUTATE the arr.
+arr.fill(2)
+console.log(arr)
