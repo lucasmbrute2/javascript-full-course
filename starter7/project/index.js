@@ -303,3 +303,16 @@ const bankDepositsSum = accounts
   .filter(mov => mov > 0)
   .reduce((acc, cur) => acc + cur, 0);
 console.log(bankDepositsSum);
+
+//2. HOW MUCH DEPOSITS WITH AT LEAST 1000
+
+// const numDeposits1000 = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov >= 1000).length;
+// console.log(numDeposits1000);
+
+//
+const numDeposits1000 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, cur, arr) => (cur >= 1000 ? acc + 1 : acc + 0), 0);
+console.log(numDeposits1000);
