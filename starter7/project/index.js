@@ -281,5 +281,6 @@ btnSort.addEventListener('click', e => {
 
 //EXAMPLE --- IN THIS EXAMPLE WE GONNA SIMULATE THAT WE DONT HAVE A LIST OF MOVEMENTS
 labelBalance.addEventListener('click', () => {
-  const movementesUI = document.querySelectorAll('.movementes__value');
+  const movementesUI = document.querySelectorAll('.movements__value');
+  console.log(movementesUI); //Notice that a Nodelist is returned
 });
