@@ -98,7 +98,9 @@ console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
 })(dogs);
 
 //6.
-function dogEatingOk(dog) {
+const dogEatingOk = dog =>
   dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
-}
 console.log(dogs.some(dogEatingOk));
+
+//7.
+console.log(dogs.filter(dogEatingOk));
