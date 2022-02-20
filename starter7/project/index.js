@@ -337,3 +337,23 @@ const { deposits, withdrawals } = accounts
     { deposits: 0, withdrawals: 0 }
   );
 console.log(deposits, withdrawals);
+
+//4.CONVERT ANY STRING TO A TITLE CASE
+
+function convertTitleCase(title) {
+  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const newTitle = title
+    .toLowerCase()
+    .split(' ')
+    .map(str =>
+      exceptions.includes(str) ? str : str.replace(str[0], str[0].toUpperCase())
+    )
+    .join(' ');
+  console.log(newTitle[0].toUpperCase() + newTitle.slice(1)); //Using the same logic to always capitalize the first letter.
+  return newTitle;
+}
+
+convertTitleCase('this is a nice title');
+convertTitleCase('this is a LONG title but not too long');
+convertTitleCase('and here is another title with an EXAMPLE');
