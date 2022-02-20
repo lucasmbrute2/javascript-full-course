@@ -314,5 +314,12 @@ console.log(bankDepositsSum);
 //
 const numDeposits1000 = accounts
   .flatMap(acc => acc.movements)
-  .reduce((acc, cur, arr) => (cur >= 1000 ? acc + 1 : acc + 0), 0);
+  .reduce((acc, cur, arr) => (cur >= 1000 ? ++acc : acc + 0), 0);
 console.log(numDeposits1000);
+
+//EXPLANATION ABOUT ++ OPERATOR
+let a = 10;
+
+console.log(a++); // Notice that results still 10
+console.log(a); //We have to log again to fix it
+console.log(++a); //We can solve this using the ++operator before the expression
