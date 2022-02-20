@@ -56,11 +56,18 @@ const dogs = [
 //1.
 (function addingRecommendedFood(dogs) {
   dogs.forEach(
-    element =>
-      (element.recommendedFood = (element.weight ** 0.75 * 28).toFixed(2))
+    element => (element.recFood = (element.weight ** 0.75 * 28).toFixed(2))
   );
-  console.log(dogs);
   return dogs;
 })(dogs);
 
 console.log(dogs);
+
+//2.
+(function eatingLitteOrTooMuch(dogs) {
+  const arrOfDogs = dogs.splice('').find(dogs => dogs.owners.includes('Sarah'));
+
+  const averageOk = arrOfDogs.curFood < arrOfDogs.recFood;
+
+  console.log(`Sarah's dog is eating ${averageOk ? 'little.' : 'too much!'}`);
+})(dogs);
