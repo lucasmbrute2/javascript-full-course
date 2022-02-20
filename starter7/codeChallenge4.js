@@ -31,6 +31,7 @@
 
 // 6. Log to the console whether there is any dog eating an okay amount of food
 // (just true or false)
+
 // 7. Create an array containing the dogs that are eating an okay amount of food (try
 // to reuse the condition used in 6.)
 
@@ -56,7 +57,7 @@ const dogs = [
 //1.
 (function addingRecommendedFood(dogs) {
   dogs.forEach(
-    element => (element.recFood = (element.weight ** 0.75 * 28).toFixed(2))
+    element => (element.recFood = (element.weight ** 0.75 * 28).toFixed(0))
   );
   return dogs;
 })(dogs);
@@ -87,3 +88,23 @@ console.log({ ownersEatTooMuch }, { ownersEatTooLittle });
 //4.
 console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much`);
 console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
+
+//5.
+(function dogEatingTheRec(dogs) {
+  const arrOfDogs = [...dogs];
+
+  arrOfDogs.map(dog => {
+    dog.curFood === dog.recFood &&
+      console.log(`Exists a dog eating the exactly recommended food`);
+  });
+})(dogs);
+
+(function dogEatingOk(dogs) {
+  const arrOfDogs = [...dogs];
+
+  arrOfDogs.map(dog => {
+    dog.curFood > dog.recFood * 0.9 &&
+      dog.curFood < dog.recFood * 1.1 &&
+      console.log(`Exists a dog eating the ok ammount`);
+  });
+})(dogs);
