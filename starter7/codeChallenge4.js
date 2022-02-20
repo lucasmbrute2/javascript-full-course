@@ -104,3 +104,8 @@ console.log(dogs.some(dogEatingOk));
 
 //7.
 console.log(dogs.filter(dogEatingOk));
+
+//8.
+
+const arrOfDogs = dogs.splice('').sort((a, b) => a.recFood - b.recFood);
+console.log(arrOfDogs);
