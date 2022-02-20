@@ -65,9 +65,21 @@ console.log(dogs);
 
 //2.
 (function eatingLitteOrTooMuch(dogs) {
-  const arrOfDogs = dogs.splice('').find(dogs => dogs.owners.includes('Sarah'));
+  const arrOfDogs = [...dogs];
 
+  arrOfDogs.find(dogs => dogs.owners.includes('Sarah'));
   const averageOk = arrOfDogs.curFood < arrOfDogs.recFood;
 
   console.log(`Sarah's dog is eating ${averageOk ? 'little.' : 'too much!'}`);
 })(dogs);
+
+//3.
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recFood)
+  .flatMap(element => element.owners);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recFood)
+  .flatMap(element => element.owners);
+
+console.log({ ownersEatTooMuch }, { ownersEatTooLittle });
