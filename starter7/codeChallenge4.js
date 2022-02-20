@@ -83,3 +83,7 @@ const ownersEatTooLittle = dogs
   .flatMap(element => element.owners);
 
 console.log({ ownersEatTooMuch }, { ownersEatTooLittle });
+
+//4.
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much`);
+console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
