@@ -326,7 +326,7 @@ console.log(++a); //We can solve this using the ++operator before the expression
 
 //3.SUM OF THE DEPOSITS AND WITHDRAWALS
 
-const sumsAndMovements = accounts
+const { deposits, withdrawals } = accounts
   .flatMap(acc => acc.movements)
   .reduce(
     (acc, cur) => {
@@ -335,4 +335,4 @@ const sumsAndMovements = accounts
     },
     { deposits: 0, withdrawals: 0 }
   );
-console.log({ sumsAndMovements });
+console.log(deposits, withdrawals);
