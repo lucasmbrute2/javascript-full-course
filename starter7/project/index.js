@@ -330,7 +330,8 @@ const { deposits, withdrawals } = accounts
   .flatMap(acc => acc.movements)
   .reduce(
     (acc, cur) => {
-      cur > 0 ? (acc.deposits += cur) : (acc.withdrawals += cur);
+      // cur > 0 ? (acc.deposits += cur) : (acc.withdrawals += cur);
+      acc[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
       return acc;
     },
     { deposits: 0, withdrawals: 0 }
