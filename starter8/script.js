@@ -267,3 +267,5 @@ console.log(25 ** (1 / 2)); //Another way
 console.log(8 ** (1 / 3)); //Cubic root
 
 console.log(Math.PI * Number.parseFloat('10px') ** 2); //Area of the circle
+
+console.log(Math.trunc(Math.random() * 6) + 1); //Generating a random number between 1 and 6
