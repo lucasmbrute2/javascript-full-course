@@ -265,3 +265,5 @@ console.log(Number.isNaN(+'20x')); //Checks if its a Nan
 console.log(Math.sqrt(25)); //This method gives us the Square root(raíz quadrada)
 console.log(25 ** (1 / 2)); //Another way
 console.log(8 ** (1 / 3)); //Cubic root
+
+console.log(Math.PI * Number.parseFloat('10px') ** 2); //Area of the circle
