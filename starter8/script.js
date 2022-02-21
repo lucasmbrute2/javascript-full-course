@@ -260,3 +260,6 @@ console.log(Number.parseInt('30px')); //JS removes the symbol "px"
 console.log(Number.parseFloat('2.5rem'));
 
 console.log(Number.isNaN(+'20x')); //Checks if its a Nan
+
+//171 =================MATH AND ROUDING===============================
+console.log(Math.sqrt(25)); //This method gives us the Square root(raíz quadrada)
