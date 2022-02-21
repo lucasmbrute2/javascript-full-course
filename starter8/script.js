@@ -251,3 +251,12 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+//170. =================CONVERTING AND CHECKING NUMBERS===================
+
+//Parsing
+
+console.log(Number.parseInt('30px')); //JS removes the symbol "px"
+console.log(Number.parseFloat('2.5rem'));
+
+console.log(Number.isNaN(+'20x')); //Checks if its a Nan
