@@ -274,3 +274,15 @@ const randomInt = (min, max) =>
   Math.trunc(Math.random() * (max - min) + 1) + min; //Gives us a number between the min and max especified.
 
 console.log(randomInt(10, 50));
+
+//Rouding
+
+console.log(Math.round(23.3)); //Arredonda pro mais próximo
+console.log(Math.round(23.9));
+
+console.log(Math.ceil(44.4)); //Arrendo sempre pra cima
+console.log(Math.ceil(44.7));
+
+console.log(Math.floor(55.1)); //Arredonda sempre para baixo
+console.log(Math.floor(55.8));
+console.log(Math.floor(-55.6)); //Se o valor for negativo a ordem se alterar
