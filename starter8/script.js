@@ -165,19 +165,6 @@ const updateUI = function (acc) {
 let currentAccount;
 
 //FAKE ALWAYS LOGIN
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
-
-const dateNow = new Date();
-labelDate.textContent = dateNow;
-
-const day = `${dateNow.getDate()}`.padStart(2, '0');
-const month = `${dateNow.getMonth() + 1}`.padStart(2, '0');
-const year = dateNow.getFullYear();
-const hour = `${dateNow.getHours()}`.padStart(2, '0');
-const min = `${dateNow.getMinutes()}`.padStart(2, '0');
-labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -193,7 +180,16 @@ btnLogin.addEventListener('click', function (e) {
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(' ')[0]
     }`;
+
+    //Current date
     containerApp.style.opacity = 100;
+    const dateNow = new Date();
+    const day = `${dateNow.getDate()}`.padStart(2, '0');
+    const month = `${dateNow.getMonth() + 1}`.padStart(2, '0');
+    const year = dateNow.getFullYear();
+    const hour = `${dateNow.getHours()}`.padStart(2, '0');
+    const min = `${dateNow.getMinutes()}`.padStart(2, '0');
+    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
 
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -222,6 +218,10 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
+    // Add transfer date
+    currentAccount.movementsDates.push(new Date().toISOString());
+    receiverAcc.movementsDates.push(new Date().toISOString());
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -236,6 +236,8 @@ btnLoan.addEventListener('click', function (e) {
     // Add movement
     currentAccount.movements.push(amount);
 
+    // Add loan date
+    currentAccount.movementsDates.push(new Date().toISOString());
     // Update UI
     updateUI(currentAccount);
   }
