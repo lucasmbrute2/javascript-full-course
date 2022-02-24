@@ -307,3 +307,19 @@ console.log(Number.MAX_SAFE_INTEGER); //is the same result
 console.log(10004284824824828431284284824824828428428428428428n);
 console.log(BigInt(319391391));
 console.log(3193913913919319318417521859n * 4284284824824824828428428428428n);
+
+//Dates and Times
+
+const now = new Date();
+console.log(now);
+console.log(new Date('Feb 24 2022 00:57:26'));
+console.log(new Date('December 24,2016'));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(0)); //Start of the unix time
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); //3 Days after Unix time
+
+//Working with dates
+
+const future = new Date(2037, 10, 19, 15, 23, 5);
+console.log(future.getFullYear());
