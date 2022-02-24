@@ -294,3 +294,16 @@ labelBalance.addEventListener('click', () => {
     if (i % 2 === 0) row.style.backgroundColor = 'tomato';
   });
 });
+
+//BigInt
+
+//Before ES20 we could storage numbers only in this size
+
+console.log(2 ** 53 - 1); //Bigger than thar was not safe.
+console.log(Number.MAX_SAFE_INTEGER); //is the same result
+
+//So in ES20 came to us the BigInt
+
+console.log(10004284824824828431284284824824828428428428428428n);
+console.log(BigInt(319391391));
+console.log(3193913913919319318417521859n * 4284284824824824828428428428428n);
