@@ -286,3 +286,11 @@ console.log(Math.ceil(44.7));
 console.log(Math.floor(55.1)); //Arredonda sempre para baixo
 console.log(Math.floor(55.8));
 console.log(Math.floor(-55.6)); //Se o valor for negativo a ordem se alterar
+
+//Remainder operator
+
+labelBalance.addEventListener('click', () => {
+  [...document.querySelectorAll('.movements__row')].forEach((row, i) => {
+    if (i % 2 === 0) row.style.backgroundColor = 'tomato';
+  });
+});
