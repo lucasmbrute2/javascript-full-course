@@ -82,9 +82,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // Functions
 
 const formatMovementDate = function (date) {
-  const daysPassed = (date1, date2) =>
-    Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
-
   const day = `${date.getDate()}`.padStart(2, '0');
   const month = `${date.getMonth() + 1}`.padStart(2, '0');
   const year = date.getFullYear();
@@ -362,5 +359,22 @@ console.log(future.getFullYear());
 
 console.log(Number(future)); //Converting a date we receive a timestamp in miliseconds
 
-// const days1 = daysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24));
-// console.log(days1);
+const daysPassed = (date1, date2) =>
+  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+const days1 = daysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24));
+console.log(days1);
+
+// SetTimeout and setInterval
+
+setTimeout(() => console.log('Here is your pizza!'), 3000); //The code is gonna be execute in 3s later. its a async method,that is, the below code is executed instantly
+console.log('waiting...');
+
+setTimeout(
+  (first, second) =>
+    console.log(
+      `Testing the first parameter: ${first} and the second: ${second}`
+    ),
+  4000,
+  'First Parameter',
+  'Second Parameter'
+);
