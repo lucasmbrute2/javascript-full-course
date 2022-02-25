@@ -393,3 +393,10 @@ if (ingredients.includes('spinach')) {
   console.log('Timer was stopped');
   clearTimeout(timer);
 } // We can stop the timer
+
+//SetInterval
+
+setInterval(() => {
+  const now = new Date();
+  console.log(now);
+}, 1000);
