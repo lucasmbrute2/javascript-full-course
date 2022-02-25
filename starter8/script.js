@@ -185,12 +185,13 @@ const startLogOutTimer = () => {
   }
   let time = 10;
   tick();
-  const timer = setInterval(() => tick(), 1000);
+  const timer2 = setInterval(() => tick(), 1000);
+  return timer2;
 };
 
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer2;
 
 //FAKE ALWAYS LOGIN
 
@@ -209,7 +210,9 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
 
-    startLogOutTimer();
+    if (timer2) clearInterval(timer2);
+
+    timer2 = startLogOutTimer();
     //Current date
     containerApp.style.opacity = 100;
     const dateNow = new Date();
