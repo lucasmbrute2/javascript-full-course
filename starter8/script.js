@@ -378,3 +378,16 @@ setTimeout(
   'First Parameter',
   'Second Parameter'
 );
+
+const ingredients = ['olives', 'spinach'];
+
+const timer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}`),
+  1000,
+  ...ingredients
+);
+
+if (ingredients.includes('spinach')) {
+  console.log('Timer was stopped');
+  clearTimeout(timer);
+} // We can stop the timer
