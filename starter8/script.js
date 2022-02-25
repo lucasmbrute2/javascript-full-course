@@ -165,6 +165,29 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+const startLogOutTimer = () => {
+  function tick() {
+    const min = `${Math.trunc(time / 60)}`.padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    labelTimer.textContent = `${min}:${sec}`;
+
+    if (time === 0) {
+      clearInterval(timer);
+
+      labelWelcome.textContent = `Log in to get started `;
+      containerApp.style.opacity = 0;
+
+      currentAccount = '';
+    }
+
+    time--;
+  }
+  let time = 10;
+  tick();
+  const timer = setInterval(() => tick(), 1000);
+};
+
 ///////////////////////////////////////
 // Event handlers
 let currentAccount;
@@ -186,6 +209,7 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
 
+    startLogOutTimer();
     //Current date
     containerApp.style.opacity = 100;
     const dateNow = new Date();
@@ -396,7 +420,7 @@ if (ingredients.includes('spinach')) {
 
 //SetInterval
 
-setInterval(() => {
-  const now = new Date();
-  console.log(now);
-}, 1000);
+// setInterval(() => {
+//   const now = new Date();
+//   console.log(now);
+// }, 1000);
