@@ -36,11 +36,18 @@ btnScrollTo.addEventListener('click', e => {
   const s1coords = section1.getBoundingClientRect(); //Gets the coordenates of the element based on the viewport
   console.log(s1coords);
 
-  console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
   console.log(
     'Height/width viewport',
     document.documentElement.clientHeight,
     document.documentElement.clientWidth
+  );
+
+  // Scrolling
+
+  window.scrollTo(
+    s1coords.left + window.pageXOffset,
+    s1coords.top + window.pageYOffset
   );
 });
 
