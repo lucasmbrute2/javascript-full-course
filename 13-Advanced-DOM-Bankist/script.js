@@ -45,10 +45,14 @@ btnScrollTo.addEventListener('click', e => {
 
   // Scrolling
 
-  window.scrollTo(
-    s1coords.left + window.pageXOffset,
-    s1coords.top + window.pageYOffset
-  );
-});
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
 
-document.body.style.scrollBehavior = 'smooth';
+  window.scrollTo({
+    left: s1coords.left + window.pageXOffset,
+    top: s1coords.top + window.pageYOffset,
+    behavior: 'smooth',
+  });
+});
