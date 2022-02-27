@@ -65,3 +65,6 @@ console.log(getComputedStyle(message).color); // In this way will works
 
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px'; // Increasing the height of the element
+
+// Accessing CSS variables
+// document.documentElement.style.setProperty('--color-primary', 'tomato');
