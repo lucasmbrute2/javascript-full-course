@@ -30,6 +30,8 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+const header = document.querySelector('.header');
+
 const message = document.createElement('div'); // We are creating a div, that is not in our DOM yet.
 message.classList.add('cookie-message');
 // message.textContent = 'We use cookied for improved functionality and analytics';
@@ -41,8 +43,8 @@ message.innerHTML =
 header.append(message); // Insert after the element
 // header.append(message.cloneNode(true)); // Copy an element
 
-header.before(message);
-header.after(message);
+// header.before(message);
+// header.after(message);
 
 // Delete Elements
 
@@ -50,3 +52,5 @@ document.querySelector('.btn--close-cookie').addEventListener('click', () => {
   // message.parentElement.removeChild(message);
   message.remove();
 });
+
+// Styles
