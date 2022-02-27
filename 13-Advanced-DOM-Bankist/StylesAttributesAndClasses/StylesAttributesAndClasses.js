@@ -82,3 +82,7 @@ console.log(logo.getAttribute('src')); // Returns the absolut link
 
 console.log(logo.getAttribute('designer')); // Retrieving the custom attribute from the element
 logo.setAttribute('company', 'Bankist');
+
+// Data attributes
+
+console.log(logo.dataset.versionNumber); // Always that you have a attribute starting with "data" in the attributes, you can retrieves like that
