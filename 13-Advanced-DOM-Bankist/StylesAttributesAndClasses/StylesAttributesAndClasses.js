@@ -74,7 +74,8 @@ const logo = document.querySelector('.nav__logo');
 console.log(logo);
 console.log(logo.alt); // As in React, we are acessing the Element Attributes, its cool!
 console.log(logo.className);
-console.log(logo.src);
+console.log(logo.src); // Returns the absolut link
+console.log(logo.getAttribute('src')); // Returns the absolut link
 // logo.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz1J8G6JKaDudRTBNa0hl1xzaERDky7sNbsg&usqp=CAU';
 
 // Non-standard (creating attributes)
