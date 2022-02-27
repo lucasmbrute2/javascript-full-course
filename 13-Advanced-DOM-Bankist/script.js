@@ -29,3 +29,16 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+
+console.log(document.documentElement)
+console.log(document.head)
+console.log(document.body)
+
+document.querySelector('.section')
+const allSections = document.querySelectorAll('.section')// Returns a NodeList, is not automatically updated 
+console.log(allSections)
+
+document.getElementById('section--1')
+const buttons = document.getElementsByTagName('button') // Returns a HTML Collection -> Is automatically updated
+console.log(buttons)
