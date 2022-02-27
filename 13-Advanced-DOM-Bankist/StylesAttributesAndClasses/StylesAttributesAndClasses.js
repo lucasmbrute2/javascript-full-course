@@ -29,3 +29,24 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+const message = document.createElement('div'); // We are creating a div, that is not in our DOM yet.
+message.classList.add('cookie-message');
+// message.textContent = 'We use cookied for improved functionality and analytics';
+
+message.innerHTML =
+  'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+// header.prepend(message); // Insert before the element
+header.append(message); // Insert after the element
+// header.append(message.cloneNode(true)); // Copy an element
+
+header.before(message);
+header.after(message);
+
+// Delete Elements
+
+document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+  // message.parentElement.removeChild(message);
+  message.remove();
+});
