@@ -31,7 +31,3 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
-
-btnScrollTo.addEventListener('click',(e)=>{
-  const 
-})
