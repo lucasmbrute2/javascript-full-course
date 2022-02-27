@@ -86,3 +86,13 @@ logo.setAttribute('company', 'Bankist');
 // Data attributes
 
 console.log(logo.dataset.versionNumber); // Always that you have a attribute starting with "data" in the attributes, you can retrieves like that
+
+// Classes
+
+logo.classList.add('_');
+logo.classList.remove('_');
+logo.classList.toggle('_');
+logo.classList.contains('_');
+
+//Don't use
+logo.className = 'lucas';
