@@ -54,3 +54,14 @@ document.querySelector('.btn--close-cookie').addEventListener('click', () => {
 });
 
 // Styles
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '105%';
+
+console.log(message.style.color); // You cannot log styles that you not create
+console.log(message.style.width); // This will work, returns 105%
+
+console.log(getComputedStyle(message).color); // In this way will works
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px'; // Increasing the height of the element
