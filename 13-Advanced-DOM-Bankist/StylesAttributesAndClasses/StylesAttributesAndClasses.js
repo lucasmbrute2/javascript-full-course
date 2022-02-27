@@ -80,3 +80,4 @@ console.log(logo.src);
 // Non-standard (creating attributes)
 
 console.log(logo.getAttribute('designer')); // Retrieving the custom attribute from the element
+logo.setAttribute('company', 'Bankist');
