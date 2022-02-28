@@ -8,19 +8,27 @@ const body = document.body;
 const button = document.querySelector('.nav__link--btn');
 const document2 = document.documentElement;
 
-document2.addEventListener('click', e => {
+document2.addEventListener('click', function (e) {
   alert('Clicou no document');
   console.log(e.target);
+  console.log(e.currentTarget);
+  console.log(this === e.currentTarget);
 });
 
-body.addEventListener('click', e => {
+body.addEventListener('click', function (e) {
   alert('Clicou no body');
   console.log(e.target);
+  console.log(e.currentTarget);
+  console.log(this === e.currentTarget);
 });
 
-button.addEventListener('click', e => {
+button.addEventListener('click', function (e) {
   alert('Clicou no botão');
   console.log(e.target);
+  console.log(e.currentTarget);
+  console.log(this === e.currentTarget);
 });
 
 // Notice that when we click in button, the body can listen the event and the target is the same (Element that was clicked )
+
+// The current target is gonna be equals the This, actually the current element
