@@ -63,12 +63,27 @@ btnScrollTo.addEventListener('click', e => {
 
 // Page Navigation
 
-document.querySelectorAll('.nav__link').forEach(element =>
-  element.addEventListener('click', function (e) {
-    e.preventDefault();
-    console.log('link');
+// document.querySelectorAll('.nav__link').forEach(element =>
+//   element.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     console.log('link');
 
-    const id = this.getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  })
-);
+//     const id = this.getAttribute('href');
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//   })
+// );
+
+/* Event delegation
+  1. Add evenet listener to common parent element 
+  2. Determine what element originated the event 
+
+*/
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
+  const id = e.target.getAttribute('href');
+
+  // Ignore clicks that didn't came from desired element
+
+  if (id) document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+});
