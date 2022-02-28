@@ -60,3 +60,15 @@ btnScrollTo.addEventListener('click', e => {
 
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+// Page Navigation
+
+document.querySelectorAll('.nav__link').forEach(element =>
+  element.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log('link');
+
+    const id = this.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  })
+);
