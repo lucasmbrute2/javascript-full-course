@@ -15,3 +15,5 @@ h1.addEventListener('mouseenter', alertH1); // Allows multiple EventListener in 
 // h1.onmouseenter = () => {
 //   alert('Olá2');
 // }; // DON'T USE THAT
+
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000); // Remove the listener after 3 seconds.
