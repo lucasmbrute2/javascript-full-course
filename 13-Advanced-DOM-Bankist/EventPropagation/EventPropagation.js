@@ -22,15 +22,19 @@ body.addEventListener('click', function (e) {
   console.log(this === e.currentTarget);
 });
 
-button.addEventListener('click', function (e) {
-  alert('Clicou no botão');
-  console.log(e.target);
-  console.log(e.currentTarget);
-  console.log(this === e.currentTarget);
+button.addEventListener(
+  'click',
+  function (e) {
+    alert('Clicou no botão');
+    console.log(e.target);
+    console.log(e.currentTarget);
+    console.log(this === e.currentTarget);
 
-  // ======== STOPPING EVENT PROPAGATION==============
-  e.stopPropagation();
-});
+    // ======== STOPPING EVENT PROPAGATION==============
+    e.stopPropagation();
+  },
+  true // This true will indicates to AddEventListener catchs the event in Capture Phase (not very usefull)
+);
 
 // Notice that when we click in button, the body can listen the event and the target is the same (Element that was clicked )
 
