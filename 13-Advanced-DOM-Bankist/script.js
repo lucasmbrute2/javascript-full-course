@@ -87,3 +87,28 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 
   if (id) document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 });
+
+// Tabbed component
+
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+// We are acessing all the 'tabs' for you parent element
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab'); // Closest is necessary receive only the button without the span
+
+  // Moving up the button that was clicked
+  if (!clicked) return;
+
+  // Remove activate classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  tabsContent.forEach(t => t.classList.remove('operations__content--active'));
+
+  // Activate content area
+  clicked.classList.add('operations__tab--active');
+
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
