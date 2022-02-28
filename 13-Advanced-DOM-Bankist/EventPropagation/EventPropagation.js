@@ -27,8 +27,13 @@ button.addEventListener('click', function (e) {
   console.log(e.target);
   console.log(e.currentTarget);
   console.log(this === e.currentTarget);
+
+  // ======== STOPPING EVENT PROPAGATION==============
+  e.stopPropagation();
 });
 
 // Notice that when we click in button, the body can listen the event and the target is the same (Element that was clicked )
 
 // The current target is gonna be equals the This, actually the current element
+
+// The stop propagation (like said the name) forbid the Bubble phase to continue
