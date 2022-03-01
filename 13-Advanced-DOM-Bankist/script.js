@@ -247,4 +247,12 @@ function nextSlide() {
   goToSlide(currSlide);
 }
 
+function previousSlide() {
+  if (currSlide === 0) currSlide = maxSlide - 1;
+  else currSlide--;
+
+  goToSlide(currSlide);
+}
+
 btnRight.addEventListener('click', nextSlide);
+btnLft.addEventListener('click', previousSlide);
