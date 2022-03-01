@@ -115,7 +115,7 @@ tabsContainer.addEventListener('click', function (e) {
 
 // Menu fade animation
 
-const handleEachEvent = (e, opacity) => {
+const handleEachEvent = function (e) {
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
@@ -123,17 +123,21 @@ const handleEachEvent = (e, opacity) => {
 
     siblings.forEach(el => {
       if (el !== link) {
-        el.style.opacity = opacity;
-        logo.style.opacity = opacity;
+        el.style.opacity = this;
+        logo.style.opacity = this;
       }
     });
   }
 };
 
-nav.addEventListener('mouseover', function (e) {
-  handleEachEvent(e, 0.5);
-});
+// nav.addEventListener('mouseover', function (e) {
+//   handleEachEvent(e, 0.5);
+// });
 
-nav.addEventListener('mouseout', function (e) {
-  handleEachEvent(e, 1);
-});
+// nav.addEventListener('mouseout', function (e) {
+//   handleEachEvent(e, 1);
+// });
+
+nav.addEventListener('mouseover', handleEachEvent.bind(0.5));
+
+nav.addEventListener('mouseout', handleEachEvent.bind(1));
