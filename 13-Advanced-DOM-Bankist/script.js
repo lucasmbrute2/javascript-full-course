@@ -225,6 +225,11 @@ const btnLft = document.querySelector('.slider__btn--left');
 const btnRight = document.querySelector('.slider__btn--right');
 const slider = document.querySelector('.slider');
 
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowLeft') previousSlide();
+  else if (e.key === 'ArrowRight') nextSlide();
+});
+
 let currSlide = 0;
 const maxSlide = slides.length;
 
