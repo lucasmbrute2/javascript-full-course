@@ -234,6 +234,7 @@ document.addEventListener('keydown', function (e) {
 let currSlide = 0;
 const maxSlide = slides.length;
 
+// Functions
 const createDots = function () {
   slides.forEach((_, i) => {
     dotContainer.insertAdjacentHTML(
@@ -244,8 +245,6 @@ const createDots = function () {
     );
   });
 };
-
-createDots();
 
 function activateDot(slideNumber) {
   document
@@ -263,12 +262,7 @@ function goToSlide(slide) {
   );
 }
 
-// Showing the slides
-
-goToSlide(0);
-activateDot(0);
-
-// Next slide
+// Next slide / Prev slide
 
 function nextSlide() {
   if (currSlide === maxSlide - 1) currSlide = 0;
@@ -285,6 +279,17 @@ function previousSlide() {
   goToSlide(currSlide);
   activateDot(currSlide);
 }
+
+// Showing the slides
+const init = () => {
+  goToSlide(0);
+  createDots();
+  activateDot(0);
+};
+
+init();
+
+//Event Handlers
 
 btnRight.addEventListener('click', nextSlide);
 btnLft.addEventListener('click', previousSlide);
