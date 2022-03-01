@@ -225,23 +225,26 @@ const btnLft = document.querySelector('.slider__btn--left');
 const btnRight = document.querySelector('.slider__btn--right');
 const slider = document.querySelector('.slider');
 
-slider.style.overflow = 'visible';
-
 let currSlide = 0;
 const maxSlide = slides.length;
 
-slides.forEach(
-  (slide, i) => (slide.style.transform = `translateX(${100 * i}%)`)
-);
+function goToSlide(slide) {
+  slides.forEach(
+    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+  );
+}
+
+// Showing the slides
+
+goToSlide(0);
 
 // Next slide
 
-btnRight.addEventListener('click', function () {
+function nextSlide() {
   if (currSlide === maxSlide - 1) currSlide = 0;
   else currSlide++;
 
-  slides.forEach(
-    (slide, i) =>
-      (slide.style.transform = `translateX(${100 * (i - currSlide)}%)`)
-  );
-});
+  goToSlide(currSlide);
+}
+
+btnRight.addEventListener('click', nextSlide);
