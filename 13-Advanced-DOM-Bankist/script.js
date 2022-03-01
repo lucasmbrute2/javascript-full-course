@@ -170,3 +170,23 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 
 headerObserver.observe(header);
+
+//=====================Revealing Elements on Scroll===================
+const sections = document.querySelectorAll('section');
+
+const showSections = (entries, observer) => {
+  // Entries are relative to the threshold
+
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(showSections, {
+  root: null,
+  threshold: 0.15,
+});
+
+sections.forEach(section => sectionObserver.observe(section));
