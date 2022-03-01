@@ -47,7 +47,7 @@ btnScrollTo.addEventListener('click', e => {
     document.documentElement.clientWidth
   );
 
-  // Scrolling
+  //========================Scrolling=====================
 
   // window.scrollTo(
   //   s1coords.left + window.pageXOffset,
@@ -65,7 +65,7 @@ btnScrollTo.addEventListener('click', e => {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
-// Page Navigation
+//=======================Page Navigation====================
 
 // document.querySelectorAll('.nav__link').forEach(element =>
 //   element.addEventListener('click', function (e) {
@@ -92,7 +92,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   if (id) document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 });
 
-// Tabbed component
+//========================Tabbed component====================
 
 // We are acessing all the 'tabs' for you parent element
 tabsContainer.addEventListener('click', function (e) {
@@ -113,7 +113,7 @@ tabsContainer.addEventListener('click', function (e) {
     .classList.add('operations__content--active');
 });
 
-// Menu fade animation
+//=================Menu fade animation========================
 
 const handleEachEvent = function (e) {
   if (e.target.classList.contains('nav__link')) {
@@ -142,7 +142,7 @@ nav.addEventListener('mouseover', handleEachEvent.bind(0.5));
 
 nav.addEventListener('mouseout', handleEachEvent.bind(1));
 
-// Sticky navigation
+//==================Sticky navigation===================
 
 // const initialCoords = section1.getBoundingClientRect();
 
@@ -161,13 +161,12 @@ const stickyNav = function (entries) {
 
   if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
-  console.log(entry);
 };
 
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
-  rootMargin: `-${navHeight}`, // Especify a gap of 90px to call the function
+  rootMargin: `-${navHeight}px`, // Especify a gap of 90px to call the function
 });
 
 headerObserver.observe(header);
