@@ -217,3 +217,31 @@ const imageObserver = new IntersectionObserver(loadImg, {
 });
 
 images.forEach(img => imageObserver.observe(img));
+
+//=============================Slider=================================
+
+const slides = document.querySelectorAll('.slide');
+const btnLft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+const slider = document.querySelector('.slider');
+
+slider.style.overflow = 'visible';
+
+let currSlide = 0;
+const maxSlide = slides.length;
+
+slides.forEach(
+  (slide, i) => (slide.style.transform = `translateX(${100 * i}%)`)
+);
+
+// Next slide
+
+btnRight.addEventListener('click', function () {
+  if (currSlide === maxSlide - 1) currSlide = 0;
+  else currSlide++;
+
+  slides.forEach(
+    (slide, i) =>
+      (slide.style.transform = `translateX(${100 * (i - currSlide)}%)`)
+  );
+});
