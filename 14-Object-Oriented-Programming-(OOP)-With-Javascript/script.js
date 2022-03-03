@@ -26,3 +26,15 @@ const bruna = new Person('Bruna', 2003);
 console.log(matilda, bruna);
 
 console.log(lucas instanceof Person);
+
+// =========Prototypes============
+
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  // Adding a prototype
+};
+console.log(2037 - this.birthYear);
+
+lucas.calcAge();
+bruna.calcAge();
