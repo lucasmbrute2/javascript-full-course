@@ -1,8 +1,11 @@
 'use strict';
 
-const Person = function (firstName, borthYear) {};
-
-new Person('Lucas', 2000);
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName; // We are setting the key firstName(could be anything) with the value firstName
+  this.birthYear = birthYear;
+};
+const lucas = new Person('Lucas', 2000);
+console.log(lucas);
 
 //====== What is happining in this function(because the new operator) ==========
 
