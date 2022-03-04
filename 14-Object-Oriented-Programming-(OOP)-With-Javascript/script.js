@@ -38,3 +38,8 @@ Person.prototype.calcAge = function () {
 
 lucas.calcAge();
 bruna.calcAge();
+
+console.log(lucas.__proto__); // The prototype of the object linked object
+console.log(lucas.__proto__ === Person.prototype); // The prototype of the object linked object
+
+console.log(Person.prototype.isPrototypeOf(lucas)); // The prototype is linked in the object, no in the Person
