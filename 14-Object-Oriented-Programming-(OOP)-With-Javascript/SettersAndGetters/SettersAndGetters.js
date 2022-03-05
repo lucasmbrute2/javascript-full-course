@@ -35,6 +35,12 @@ class PersonCL {
   get age() {
     return 2037 - this.birthYear;
   }
+
+  // We are always making a validation if has a space in the name
+  set fullName(name) {
+    if (name.includes(' ')) this.name = name;
+    else alert(`${name} is not a full name!`);
+  }
 }
 
 const lucas = new PersonCL('Lucas Souza', 2000);
