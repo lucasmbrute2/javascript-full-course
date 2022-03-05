@@ -15,3 +15,33 @@
 
 // Test data:
 // § Data car 1: 'Ford' going at 120 km/h
+
+class CarCL {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  get speedUS() {
+    return `It's a ${this.speed / 1.6}mi/h`;
+  }
+
+  speedUS(speed) {
+    return `It's a  ${this.speed * 1.6}`;
+  }
+
+  accelerate() {
+    console.log(`The new speed of ${this.make} is ${(this.speed += 10)}km/h.`);
+  }
+
+  brake() {
+    console.log(`The new speed of ${this.make} is ${(this.speed -= 5)}km/h.`);
+  }
+}
+const ford = new CarCL('Ford', 120);
+
+console.log(ford.speedUS);
+console.log((ford.speedUS = 30));
+ford.accelerate();
+ford.speedUS = 40;
+console.log(ford);
