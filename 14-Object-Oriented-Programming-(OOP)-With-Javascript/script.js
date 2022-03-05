@@ -63,7 +63,7 @@ console.log(arr.__proto__ === Array.prototype);
 
 Array.prototype.timesByTwo = function () {
   console.log(this);
-  return [...this.map(el => el * 2)]; // Times by 2 all the elements
+  return this.map(el => el * 2); // Times by 2 all the elements
 };
 console.log(arr.timesByTwo()); // We can create a new function to all the arrays
 
