@@ -61,6 +61,7 @@ const arr = [3, 4, 5, 6, 7, 8]; // new Array()
 console.dir(Person.prototype.constructor); //  The constructor points to objects itself (Person)
 console.log(arr.__proto__ === Array.prototype);
 
+// Only for fan, don't do this
 Array.prototype.timesByTwo = function () {
   console.log(this);
   return this.map(el => el * 2); // Times by 2 all the elements
