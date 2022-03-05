@@ -9,10 +9,14 @@ function Person(firstName, birthYear) {
 
 const person1 = new Person('Amanda', 2000);
 console.log(person1);
+console.log(person1.__proto__);
 
 Person.prototype.calcAge = function () {
+  // Always creates the function in this way.
   return 2037 - this.birthYear;
 };
+
+console.log('===============NEW SYNTAX BELOW===============');
 
 // ================NEW SYNTAX=================
 /* Class expression
