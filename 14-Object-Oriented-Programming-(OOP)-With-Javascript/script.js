@@ -52,3 +52,17 @@ console.log(bruna.species); // In this case we receive the species property
 
 console.log(bruna.hasOwnProperty('firstName')); // TRUE
 console.log(bruna.hasOwnProperty('species')); // FALSE
+
+// Built-in proto
+console.log(lucas.__proto__.__proto__);
+console.log(Array.prototype);
+
+const arr = [3, 4, 5, 6, 7, 8]; // new Array()
+console.dir(Person.prototype.constructor); //  The constructor points to objects itself (Person)
+console.log(arr.__proto__ === Array.prototype);
+
+Array.prototype.unique = function () {
+  console.log(this);
+  // return [...new Set(this)];
+};
+console.log(arr.unique()); // We can create a new function to all the arrays
