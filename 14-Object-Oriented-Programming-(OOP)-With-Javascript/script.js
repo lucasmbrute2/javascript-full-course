@@ -63,6 +63,6 @@ console.log(arr.__proto__ === Array.prototype);
 
 Array.prototype.unique = function () {
   console.log(this);
-  // return [...new Set(this)];
+  return [...this.map(el => el * 2)];
 };
 console.log(arr.unique()); // We can create a new function to all the arrays
