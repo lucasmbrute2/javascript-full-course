@@ -61,8 +61,10 @@ const arr = [3, 4, 5, 6, 7, 8]; // new Array()
 console.dir(Person.prototype.constructor); //  The constructor points to objects itself (Person)
 console.log(arr.__proto__ === Array.prototype);
 
-Array.prototype.unique = function () {
+Array.prototype.timesByTwo = function () {
   console.log(this);
   return [...this.map(el => el * 2)]; // Times by 2 all the elements
 };
-console.log(arr.unique()); // We can create a new function to all the arrays
+console.log(arr.timesByTwo()); // We can create a new function to all the arrays
+
+new Array(32, 3, 23, 2, 3, 2, 131, 31, 31, 3, 13).timesByTwo();
