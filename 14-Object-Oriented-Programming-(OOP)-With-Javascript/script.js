@@ -43,3 +43,12 @@ console.log(lucas.__proto__); // The prototype of the object linked object
 console.log(lucas.__proto__ === Person.prototype); // The prototype of the object linked object
 
 console.log(Person.prototype.isPrototypeOf(lucas)); // The prototype is linked in the object, no in the Person
+
+// Setting properties
+
+Person.prototype.species = 'Homo Sapiens';
+console.log(bruna); // Its not its own property, so we don't receive the property
+console.log(bruna.species); // In this case we receive the species property
+
+console.log(bruna.hasOwnProperty('firstName')); // TRUE
+console.log(bruna.hasOwnProperty('species')); // FALSE
