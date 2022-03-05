@@ -19,3 +19,29 @@
 // Test data:
 // § Data car 1: 'BMW' going at 120 km/h
 // § Data car 2: 'Mercedes' going at 95 km/h
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+const bmw = new Car('BMW', 120);
+const Mercedes = new Car('Mercedes', 95);
+
+Car.prototype.accelerate = function () {
+  console.log(`The new speed of ${this.make} is ${(this.speed += 10)}km/h.`);
+};
+
+Car.prototype.brake = function () {
+  console.log(`The new speed of ${this.make} is ${(this.speed -= 5)}km/h.`);
+};
+
+bmw.accelerate();
+bmw.accelerate();
+bmw.accelerate();
+bmw.accelerate();
+Mercedes.accelerate();
+Mercedes.accelerate();
+Mercedes.accelerate();
+bmw.brake();
+Mercedes.brake();
