@@ -90,15 +90,16 @@ class Account {
     this.deposit(-val);
   }
 
-  _approveLoan(val) {
-    return true;
-  } // This method should not be able outside the Class
-
   requestLoan(val) {
-    if (this._approveLoan()) {
+    if (this.#approveLoan()) {
       this.deposit(val);
       console.log('Loan approved');
     }
+  }
+
+  // 4- Private methods
+  #approveLoan(val) {
+    return true;
   }
 }
 
@@ -106,6 +107,5 @@ const acc1 = new Account('Lucas', 'BR', 1111);
 acc1.deposit(250);
 acc1.withdraw(100);
 acc1.requestLoan(1000);
-acc1._approveLoan(100); // This should not be able here
 
 console.log(acc1);
