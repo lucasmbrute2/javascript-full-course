@@ -62,14 +62,14 @@ class Account {
   // 1- Plubic fields (instances so they arent' on protoype)
   locale = navigator.language;
 
-  // 2- Private fields
+  // 2- Private fields (instances so they arent' on protoype)
   #movements = [];
-
+  #pin;
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
     // Protected property with the _ convention
-    this._pin = pin;
+    this.#pin = pin;
     // this._movements = [];
     // this.locale = navigator.language;
 
