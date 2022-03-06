@@ -63,6 +63,32 @@ class Account {
 
     console.log(`Tanks for opening an account, ${owner}`); // You can create anything insides constructor
   }
+
+  // Always use methods to interacts with the object (API)
+  deposit(val) {
+    this.movements.push(val);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  approveLoan(val) {
+    return true;
+  } // This method should not be able outside the Class
+
+  requestLoan(val) {
+    if (this.approveLoan()) {
+      this.deposit(val);
+      console.log('Loan approved');
+    }
+  }
 }
 
 const acc1 = new Account('Lucas', 'BR', 1111);
+acc1.deposit(250);
+acc1.withdraw(100);
+acc1.requestLoan(1000);
+acc1.approveLoan(100); // This should not be able here
+
+console.log(acc1);
