@@ -27,7 +27,7 @@ class CarCL {
   }
 
   speedUS(speed) {
-    return `It's a  ${this.speed * 1.6}`;
+    return `It's a  ${(this.speed = speed * 1.6)}`;
   }
 
   accelerate() {
