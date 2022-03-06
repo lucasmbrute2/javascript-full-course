@@ -76,8 +76,8 @@ class Account {
     console.log(`Tanks for opening an account, ${owner}`); // You can create anything insides constructor
   }
 
+  // Public methods
   // Always use methods to interacts with the object (API)
-
   getMovements() {
     return this.#movements;
   }
