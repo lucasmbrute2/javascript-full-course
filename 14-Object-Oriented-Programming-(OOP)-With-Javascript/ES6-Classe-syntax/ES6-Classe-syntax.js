@@ -53,14 +53,23 @@ lucas.greet();
 
 //======================================================================================
 
+// 1) Public fields
+// 2) Private fields
+// 3) Public methods
+// 4) Private methods
+
 class Account {
+  // 1- Plubic fields (instances so they arent' on protoype)
+  locale = navigator.language;
+  _movements = [];
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
     // Protected property with the _ convention
     this._pin = pin;
-    this._movements = [];
-    this.locale = navigator.language;
+    // this._movements = [];
+    // this.locale = navigator.language;
 
     console.log(`Tanks for opening an account, ${owner}`); // You can create anything insides constructor
   }
@@ -90,6 +99,6 @@ const acc1 = new Account('Lucas', 'BR', 1111);
 acc1.deposit(250);
 acc1.withdraw(100);
 acc1.requestLoan(1000);
-acc1.approveLoan(100); // This should not be able here
+acc1._approveLoan(100); // This should not be able here
 
 console.log(acc1);
