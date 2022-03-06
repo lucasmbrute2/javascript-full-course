@@ -23,4 +23,7 @@ Student.prototype.introduce = function () {
 const mike = new Student('Lucas', 2000, 'Computer Science');
 console.log(mike);
 mike.introduce();
-mike.calcAge(); // Yeah, the both prototypes are linked
+mike.calcAge(); // Yeah, the both prototypes are linked!
+
+Student.prototype.constructor = Student;
+console.log(mike);
