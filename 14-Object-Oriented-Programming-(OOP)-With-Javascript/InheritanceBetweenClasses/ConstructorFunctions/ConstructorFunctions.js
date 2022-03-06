@@ -2,7 +2,7 @@
 
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
-  this.birthYear;
+  this.birthYear = birthYear;
 };
 
 Person.prototype.calcAge = function () {
@@ -23,3 +23,4 @@ Student.prototype.introduce = function () {
 const mike = new Student('Lucas', 2000, 'Computer Science');
 console.log(mike);
 mike.introduce();
+mike.calcAge(); // Yeah, the both prototypes are linked
