@@ -57,8 +57,9 @@ class Account {
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
+    // Protected property with the _ convention
+    this._pin = pin;
+    this._movements = [];
     this.locale = navigator.language;
 
     console.log(`Tanks for opening an account, ${owner}`); // You can create anything insides constructor
@@ -66,19 +67,19 @@ class Account {
 
   // Always use methods to interacts with the object (API)
   deposit(val) {
-    this.movements.push(val);
+    this._movements.push(val);
   }
 
   withdraw(val) {
     this.deposit(-val);
   }
 
-  approveLoan(val) {
+  _approveLoan(val) {
     return true;
   } // This method should not be able outside the Class
 
   requestLoan(val) {
-    if (this.approveLoan()) {
+    if (this._approveLoan()) {
       this.deposit(val);
       console.log('Loan approved');
     }
