@@ -61,7 +61,9 @@ lucas.greet();
 class Account {
   // 1- Plubic fields (instances so they arent' on protoype)
   locale = navigator.language;
-  _movements = [];
+
+  // 2- Private fields
+  #movements = [];
 
   constructor(owner, currency, pin) {
     this.owner = owner;
@@ -75,8 +77,13 @@ class Account {
   }
 
   // Always use methods to interacts with the object (API)
+
+  getMovements() {
+    return this.#movements;
+  }
+
   deposit(val) {
-    this._movements.push(val);
+    this.#movements.push(val);
   }
 
   withdraw(val) {
