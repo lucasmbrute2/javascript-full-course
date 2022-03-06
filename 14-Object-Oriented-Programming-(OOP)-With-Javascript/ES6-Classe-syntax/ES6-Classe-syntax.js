@@ -50,3 +50,15 @@ lucas.greet();
 // 1. Classes are NOT hoisted
 // 2. Classes are first-class citizes
 // 3. Classes are executed in strict mode
+
+//======================================================================================
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+  }
+}
+
+const acc1 = new Account('Lucas', 'BR', 1111);
