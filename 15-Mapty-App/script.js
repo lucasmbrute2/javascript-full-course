@@ -50,7 +50,6 @@ class Cycling extends Workout {
     this.speed = this.DISTANCE_IN_KM / (this.DURATION_IN_MIN / 60);
   }
 }
-
 class App {
   #map;
   #mapEvent;
@@ -102,18 +101,56 @@ class App {
   }
 
   _newWorkout(e) {
+    const validInputs = (...inputs) =>
+      inputs.every(input => Number.isFinite(input));
+
+    const allPositive = (...inputs) => inputs.every(input => input > 0);
+
     e.preventDefault();
 
-    // Clear input fields
-    inputDistance.value =
-      inputDuration.value =
-      inputCadence.value =
-      inputElevation.value =
-        '';
+    // Get data from the form
 
-    // Display Marker
-    const { lat, lng } = this.#mapEvent.latlng;
-    const arr = [lat, lng];
+    // const arrOfInputValues = [...form.querySelectorAll('.form__input')].map(
+    //   input => input.value
+    // );
+    // console.log(arr);
+    const type = inputType.value;
+    const distance = +inputDistance.value;
+    const duration = +inputDuration.value;
+
+    if (type === 'running') {
+      const cadence = +inputCadence.value;
+      if (
+        !validInputs(distance, duration, cadence) ||
+        !allPositive(distance, duration)
+      )
+        // Checking if isn't a number to return
+
+        return alert('Inputs have to be positve numbers!');
+    }
+
+    if (type === 'cycling') {
+      const elevationGain = +inputElevation.value;
+      if (
+        !validInputs(distance, duration, elevationGain) ||
+        !allPositive(distance, duration)
+      )
+        // Checking if isn't a number to return
+
+        return alert('Inputs have to be positve numbers!');
+    }
+
+    // Check if the data is valid
+
+    // If activy running create a object
+
+    //  If acitivy cylcing create a object
+
+    // Add new object to workout Array
+
+    // Render workout on map as marker
+
+    // Render workout on list
 
     L.marker(arr)
       .addTo(this.#map)
@@ -128,6 +165,15 @@ class App {
       )
       .setPopupContent('Workout')
       .openPopup();
+
+    // Clear input fields
+    inputDistance.value =
+      inputDuration.value =
+      inputCadence.value =
+      inputElevation.value =
+        '';
+    const { lat, lng } = this.#mapEvent.latlng;
+    const arr = [lat, lng];
   }
 }
 
