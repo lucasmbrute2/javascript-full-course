@@ -11,9 +11,9 @@ const ajaxCall = (country, param = 'name') => {
   return request;
 };
 
-const renderCountry = data => {
+const renderCountry = (data, className = '') => {
   const html = `
-  <article class="country">
+  <article class="country ${className}">
   <img class="country__img" src="${data.flags.png}" />
   <div class="country__data">
     <h3 class="country__name">${data.name.common}</h3>
@@ -54,7 +54,7 @@ const getCountryAndNeighbour = function (country) {
     request2.addEventListener('load', function () {
       const [data] = JSON.parse(this.responseText);
       console.log(data);
-      renderCountry(data);
+      renderCountry(data, 'neighbour');
     });
   });
 };
