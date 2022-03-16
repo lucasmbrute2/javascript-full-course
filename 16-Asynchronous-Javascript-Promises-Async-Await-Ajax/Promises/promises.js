@@ -30,12 +30,14 @@ const renderCountry = (data, className = '') => {
   countriesContainer.style.opacity = 1;
 };
 
+const renderError = msg => {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  countriesContainer.style.opacity = 1;
+};
+
 const getCountryData = country => {
   fetch(`https://restcountries.com/v3.1/name/${country}`)
-    .then(
-      response => response.json(),
-      err => alert(err)
-    )
+    .then(response => response.json())
     .then(data => {
       renderCountry(data[0]);
       const neighbour = data[0].borders[0];
@@ -45,7 +47,11 @@ const getCountryData = country => {
       return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
     })
     .then(response => response.json())
-    .then(data => renderCountry(data[0], 'neighbour'));
+    .then(data => renderCountry(data[0], 'neighbour'))
+    .catch(err => {
+      console.error(`Estourou foi tudo: ${err}`);
+      renderError(`Somenthing went wrong: ${err.message}`);
+    });
 };
 
 btn.addEventListener('click', function () {
