@@ -27,12 +27,12 @@ const renderCountry = (data, className = '') => {
 </article>`;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
+  // countriesContainer.style.opacity = 1;
 };
 
 const renderError = msg => {
   countriesContainer.insertAdjacentText('beforeend', msg);
-  countriesContainer.style.opacity = 1;
+  // countriesContainer.style.opacity = 1;
 };
 
 const getCountryData = country => {
@@ -51,6 +51,11 @@ const getCountryData = country => {
     .catch(err => {
       console.error(`Estourou foi tudo: ${err}`);
       renderError(`Somenthing went wrong: ${err.message}`);
+    })
+    .finally(() => {
+      // This method always is happen
+
+      countriesContainer.style.opacity = 1;
     });
 };
 
