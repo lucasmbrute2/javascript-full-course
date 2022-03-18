@@ -37,19 +37,31 @@ const renderError = msg => {
 
 const getCountryData = country => {
   fetch(`https://restcountries.com/v3.1/name/${country}`)
-    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+
+      if (!response.ok)
+        throw new Error(`Country not found ${response.status} try again!`); // This "throw" imediatly rejects the promise and returns
+
+      return response.json();
+    })
     .then(data => {
+      console.log(data);
       renderCountry(data[0]);
-      const neighbour = data[0].borders[0];
+      // const neighbour = data[0].borders[0];
+      const neighbour = '31313131';
       if (!neighbour) return;
 
       // Country 2
       return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) throw new Error(`Country not found ${response.status}`);
+      return response.json();
+    })
     .then(data => renderCountry(data[0], 'neighbour'))
     .catch(err => {
-      console.error(`Estourou foi tudo: ${err}`);
+      console.error(`Estourou foi tudo: ${err}`); // Throw makes the promise error propagates until here
       renderError(`Somenthing went wrong: ${err.message}`);
     })
     .finally(() => {
