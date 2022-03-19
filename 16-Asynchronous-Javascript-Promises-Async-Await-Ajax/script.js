@@ -63,3 +63,4 @@ getCountryAndNeighbour('brasil');
 getCountryAndNeighbour('usa');
 getCountryAndNeighbour('mexico');
 getCountryAndNeighbour('germany');
+getCountryAndNeighbour('canada');
