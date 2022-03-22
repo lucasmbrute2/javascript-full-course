@@ -25,3 +25,8 @@ wait(2)
     return wait(1);
   })
   .then(() => console.log('I waited for 1 second'));
+
+Promise.resolve('abc').then(x => console.log(x)); // Will resolve immediatly
+Promise.reject(new Error('Bulting a manually rejected promise')).catch(err =>
+  console.error(err)
+);
