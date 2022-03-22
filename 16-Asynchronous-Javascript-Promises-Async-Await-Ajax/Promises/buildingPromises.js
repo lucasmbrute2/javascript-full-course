@@ -1,9 +1,27 @@
 'use strict';
 
 const lotteryPromise = new Promise((resolve, reject) => {
-  if (Math.random() >= 0.5) return resolve('You won!!!!'); // set the Promise as "fullfield"
+  console.log('Lotter draw is happening!');
 
-  reject("I'm sorry, you lose :("); // set the Promise as "rejected"
+  setTimeout(() => {
+    if (Math.random() >= 0.5) return resolve('You won!!!!'); // set the Promise as "fullfield"
+
+    reject(new Error("I'm sorry, you lose :(")); // set the Promise as "rejected"
+  }, 2000);
 });
 
 lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+// Promisifying setTimeout
+const wait = seconds => {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(2)
+  .then(() => {
+    console.log('I waiter of 2 seconds');
+    return wait(1);
+  })
+  .then(() => console.log('I waited for 1 second'));
