@@ -32,3 +32,20 @@ Promise.reject(new Error('Bulting a manually rejected promise')).catch(err =>
 );
 
 // Promisifying the Geolocation API
+
+const getPosition = function () {
+  return new Promise((resolve, reject) => {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => {
+    //     resolve(console.log(position));
+    //   },
+    //   err => reject(console.error(err))
+    // );
+
+    // The same thing:
+
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+getPosition().then(pos => console.log(pos));
