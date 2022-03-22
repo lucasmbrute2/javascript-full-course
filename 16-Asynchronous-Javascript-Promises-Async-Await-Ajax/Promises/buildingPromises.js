@@ -30,3 +30,5 @@ Promise.resolve('abc').then(x => console.log(x)); // Will resolve immediatly
 Promise.reject(new Error('Bulting a manually rejected promise')).catch(err =>
   console.error(err)
 );
+
+// Promisifying the Geolocation API
