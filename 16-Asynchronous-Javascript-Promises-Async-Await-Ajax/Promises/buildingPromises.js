@@ -49,3 +49,33 @@ const getPosition = function () {
 };
 
 getPosition().then(pos => console.log(pos));
+
+function gettingUrl(url) {
+  return fetch(url).then(response => {
+    if (!response.ok)
+      throw new Error(`Something was wrong, error: ${response.status}`);
+    return response.json();
+  });
+}
+
+function whereAmI() {
+  getPosition()
+    .then(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+
+      return gettingUrl(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    })
+    .then(data => {
+      const { country, region } = data;
+
+      console.log(`You are in ${region}, ${country}`);
+      return gettingUrl(`https://restcountries.com/v3.1/name/${country}`);
+    })
+    .then(data => {
+      const [country] = data;
+      console.log(country.name.common);
+    })
+    .catch(error => console.error(error.message));
+}
+
+whereAmI();
