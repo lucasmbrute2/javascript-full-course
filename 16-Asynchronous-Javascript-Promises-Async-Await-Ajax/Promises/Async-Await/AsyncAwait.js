@@ -60,6 +60,7 @@ const whereAmI = async () => {
     return `You are in ${geoCodeBody.city}, ${geoCodeBody.country}`;
   } catch (err) {
     console.error(`${err.message}`);
+    throw err;
   }
 };
 // whereAmI();
@@ -71,7 +72,9 @@ try {
   const x = 2;
   x = 3;
 } catch (err) {
-  console.log(err);
+  console.error(err);
+
+  // Reject promise returned from async function
 }
 
 // Bahavior of async functions
@@ -79,5 +82,7 @@ try {
 console.log('1: Will get location');
 // const city = whereAmI(); // Returns a promise
 // console.log(city);
-whereAmI().then(city => console.log(city));
+whereAmI()
+  .then(city => console.log(city))
+  .catch(err => console.error(err)); // To use this catch we need throw the error again in catch
 console.log('3: Finished getting location');
