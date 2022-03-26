@@ -41,7 +41,7 @@ const getGeoLocation = async () => {
   return geoCodeBody;
 };
 
-const whereAmI = async country => {
+const whereAmI = async () => {
   // Async keyword make returns a promise automatically
 
   const geoCodeBody = await getGeoLocation();
@@ -49,9 +49,19 @@ const whereAmI = async country => {
 
   const response = await fetch(
     // Allows the await keyword
-    `https://restcountries.com/v3.1/name/${country}`
+    `https://restcountries.com/v3.1/name/${geoCodeBody.country}`
   );
   const [body] = await response.json();
   renderCountry(body);
 };
-whereAmI('brazil');
+whereAmI();
+
+// TRY CATCH
+try {
+  let y = 1;
+  const x = 2;
+  y = 3;
+} catch (err) {
+  console.log(err);
+}
+// JS will try to execute the block and any error that occurs is caught in catch
