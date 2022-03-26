@@ -57,6 +57,7 @@ const whereAmI = async () => {
     if (!response.ok) throw new Error('Deu erro!');
     const [body] = await response.json();
     renderCountry(body);
+    return `You are in ${body.city}, ${body.country}`;
   } catch (err) {
     console.error(`${err.message}`);
   }
@@ -64,6 +65,7 @@ const whereAmI = async () => {
 whereAmI();
 
 // TRY CATCH
+// JS will try to execute the block and any error that occurs is caught in catch
 try {
   let y = 1;
   const x = 2;
@@ -71,4 +73,10 @@ try {
 } catch (err) {
   console.log(err);
 }
-// JS will try to execute the block and any error that occurs is caught in catch
+
+// Bahavior of async functions
+
+console.log('1: Will get location');
+const city = whereAmI();
+console.log(city);
+console.log('3: Finished getting location');
