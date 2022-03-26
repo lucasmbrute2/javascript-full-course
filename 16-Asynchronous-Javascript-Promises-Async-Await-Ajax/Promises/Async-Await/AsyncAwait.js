@@ -37,6 +37,10 @@ const getGeoLocation = async () => {
   const geoCodeResponse = await fetch(
     `https://geocode.xyz/${lat},${lng}?geoit=json`
   );
+
+  console.log(geoCodeResponse);
+  if (geoCodeResponse.status !== 200) throw new Error('Deu erro!');
+
   const geoCodeBody = await geoCodeResponse.json();
   return geoCodeBody;
 };
@@ -46,16 +50,15 @@ const whereAmI = async () => {
 
   try {
     const geoCodeBody = await getGeoLocation();
-    console.log(geoCodeBody);
-
     const response = await fetch(
       // Allows the await keyword
       `https://restcountries.com/v3.1/name/${geoCodeBody.country}`
     );
+    if (!response.ok) throw new Error('Deu erro!');
     const [body] = await response.json();
     renderCountry(body);
   } catch (err) {
-    console.error(`${err} estourou tudo`);
+    console.error(`${err.message}`);
   }
 };
 whereAmI();
