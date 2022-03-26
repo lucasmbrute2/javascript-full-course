@@ -44,15 +44,19 @@ const getGeoLocation = async () => {
 const whereAmI = async () => {
   // Async keyword make returns a promise automatically
 
-  const geoCodeBody = await getGeoLocation();
-  console.log(geoCodeBody);
+  try {
+    const geoCodeBody = await getGeoLocation();
+    console.log(geoCodeBody);
 
-  const response = await fetch(
-    // Allows the await keyword
-    `https://restcountries.com/v3.1/name/${geoCodeBody.country}`
-  );
-  const [body] = await response.json();
-  renderCountry(body);
+    const response = await fetch(
+      // Allows the await keyword
+      `https://restcountries.com/v3.1/name/${geoCodeBody.country}`
+    );
+    const [body] = await response.json();
+    renderCountry(body);
+  } catch (err) {
+    console.error(`${err} estourou tudo`);
+  }
 };
 whereAmI();
 
@@ -60,7 +64,7 @@ whereAmI();
 try {
   let y = 1;
   const x = 2;
-  y = 3;
+  x = 3;
 } catch (err) {
   console.log(err);
 }
