@@ -38,3 +38,5 @@ const getCountries = async (...countries) => {
   }
 };
 getCountries('brasil', 'germany', 'argentina');
+
+// PROMISE COMBINATORS
