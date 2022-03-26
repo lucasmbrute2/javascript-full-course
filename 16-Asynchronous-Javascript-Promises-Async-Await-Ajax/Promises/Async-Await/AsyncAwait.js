@@ -80,9 +80,19 @@ try {
 // Bahavior of async functions
 
 console.log('1: Will get location');
-// const city = whereAmI(); // Returns a promise
-// console.log(city);
-whereAmI()
-  .then(city => console.log(city))
-  .catch(err => console.error(err)); // To use this catch we need throw the error again in catch
+// // const city = whereAmI(); // Returns a promise
+// // console.log(city);
+// whereAmI()
+//   .then(city => console.log(city))
+//   .catch(err => console.error(err)); // To use this catch we need throw the error again in catch
 console.log('3: Finished getting location');
+
+// Async await version
+(async function () {
+  try {
+    const response = await whereAmI();
+    console.log(response);
+  } catch (err) {
+    console.error(err);
+  }
+})();
