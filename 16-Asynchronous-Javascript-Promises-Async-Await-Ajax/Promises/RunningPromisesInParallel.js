@@ -40,3 +40,19 @@ const getCountries = async (...countries) => {
 getCountries('brasil', 'germany', 'argentina');
 
 // PROMISE COMBINATORS
+
+//Promise.race
+console.log('first');
+(() => {
+  return async function (...countries) {
+    const [c1, c2, c3] = countries;
+    const [response] = await Promise.race([
+      getJSON(`https://restcountries.com/v3.1/name/${c1}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c2}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c3}`),
+    ]);
+    console.log(response);
+  };
+})()('brasil', 'germany', 'argentina');
+
+console.log('second');
