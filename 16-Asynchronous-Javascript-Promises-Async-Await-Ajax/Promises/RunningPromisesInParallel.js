@@ -68,9 +68,13 @@ const timeout = seconds => {
 };
 
 (async () => {
-  const [response] = await Promise.race([
-    getJSON(`https://restcountries.com/v3.1/name/brasil`),
-    timeout(0.1),
-  ]);
-  console.log(response);
+  try {
+    const [response] = await Promise.race([
+      getJSON(`https://restcountries.com/v3.1/name/brasil`),
+      timeout(0.1),
+    ]);
+    console.log(response);
+  } catch (err) {
+    console.error(err);
+  }
 })();
