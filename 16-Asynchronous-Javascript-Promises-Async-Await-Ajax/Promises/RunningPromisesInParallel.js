@@ -57,3 +57,20 @@ console.log('first');
 
 console.log('second');
 // The first one who took the least time will be rendered
+
+// To prevent a very long run Promise, we can create a timer to use together in Promise.race:
+const timeout = seconds => {
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(new Error('Request took too long!'));
+    }, seconds * 1000);
+  });
+};
+
+(async () => {
+  const [response] = await Promise.race([
+    getJSON(`https://restcountries.com/v3.1/name/brasil`),
+    timeout(0.1),
+  ]);
+  console.log(response);
+})();
