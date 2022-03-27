@@ -71,7 +71,7 @@ const timeout = seconds => {
   try {
     const [response] = await Promise.race([
       getJSON(`https://restcountries.com/v3.1/name/brasil`),
-      timeout(0.1),
+      timeout(3),
     ]);
     console.log(response);
   } catch (err) {

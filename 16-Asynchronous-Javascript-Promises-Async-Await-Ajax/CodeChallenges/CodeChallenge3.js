@@ -24,4 +24,58 @@
 // 4. Use a promise combinator function to actually get the images from the array �
 
 // 5. Add the 'parallel' class to all the images (it has some CSS styles)
-// Test data Part 2: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img3.jpg']. To test, turn off the 'loadNPause' function
+// Test data Part 2: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img3.jpg']. To test, turn off the 'loadNPause' function
+
+const imgContainer = document.querySelector('.images');
+
+function createImage(imgPath) {
+  return new Promise((resolve, reject) => {
+    const img = document.createElement('img');
+    img.src = imgPath;
+    img.addEventListener('load', () => {
+      imgContainer.append(img);
+      resolve(img);
+    });
+
+    img.addEventListener('error', () => {
+      reject(new Error('Image not found'));
+    });
+  });
+}
+let currentImg;
+
+function wait(seconds) {
+  return new Promise(resolve => {
+    setTimeout(resolve, seconds * 1000);
+  });
+}
+
+const displayImage = async img => {
+  const imgResponse = await createImage(img);
+  currentImg = imgResponse;
+  await wait(2);
+  currentImg.style.display = 'none';
+};
+
+// (async path => {
+//   try {
+//     await displayImage(path);
+//     await displayImage('img/img-2.jpg');
+//   } catch (err) {
+//     console.error(err);
+//   }
+// })('img/img-1.jpg');
+
+const loadAll = async imgArr => {
+  try {
+    const arr = [...imgArr];
+    const imgs = arr.map(async img => await createImage(img));
+    console.log(imgs);
+    const response = await Promise.all(imgs);
+    response.forEach(eachImg => eachImg.classList.add('parallel'));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']);
