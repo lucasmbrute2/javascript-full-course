@@ -56,3 +56,4 @@ console.log('first');
 })()('brasil', 'germany', 'argentina');
 
 console.log('second');
+// The first one who took the least time will be rendered
