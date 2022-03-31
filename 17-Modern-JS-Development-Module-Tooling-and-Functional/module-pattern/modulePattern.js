@@ -22,5 +22,7 @@ const ShoppingCart = (() => {
   };
 })();
 
+// We only still have access to Shopping cart, even after the execution of the IIFE was alerady done, because of 'CLOSURE'
+
 ShoppingCart.addToCart('apple', 4);
 ShoppingCart.orderStock('apple', 4); // We can't use this orderStock function because was not returned
