@@ -14,3 +14,9 @@ const totalPrice = 413;
 const totalQuantity = 23;
 
 export { totalPrice, totalQuantity };
+
+const app = () => {
+  console.log(cart);
+};
+
+export default app;
