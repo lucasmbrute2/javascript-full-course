@@ -13,7 +13,7 @@ export const addToCart = (product, quantity) => {
 const totalPrice = 413;
 const totalQuantity = 23;
 
-export { totalPrice, totalQuantity };
+export { totalPrice, totalQuantity, shippingCost };
 
 const app = () => {
   console.log(cart);
