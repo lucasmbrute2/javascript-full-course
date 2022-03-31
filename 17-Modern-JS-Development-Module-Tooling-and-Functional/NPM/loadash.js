@@ -21,3 +21,5 @@ const stateDeepClone = cloneDeep(state);
 state.user.loggedIn = false;
 console.log(stateClone);
 console.log(stateDeepClone); // In this clone object is not muted
+
+if (module.hot) module.hot.accept(); // Makes the page do not reload!
