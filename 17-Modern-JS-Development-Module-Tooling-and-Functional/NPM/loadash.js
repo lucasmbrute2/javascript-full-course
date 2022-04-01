@@ -1,5 +1,6 @@
 // import cloneDeep from '/node_modules/lodash-es/cloneDeep.js';
 import cloneDeep from 'lodash-es';
+import 'core-js/stable';
 
 const state = {
   cart: [
@@ -9,7 +10,7 @@ const state = {
     },
     {
       product: 'pizza',
-      quantity: 5,
+      quantity: 1,
     },
   ],
   user: {
@@ -22,5 +23,18 @@ const stateDeepClone = cloneDeep(state);
 state.user.loggedIn = false;
 console.log(stateClone);
 console.log(stateDeepClone); // In this clone object is not muted
+class Person {
+  #greeting = 'Hey';
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.#greeting} ${this.name}`);
+  }
+}
+const lucas = new Person('Lucas');
+const Souza = new Person('Souza');
+
+const newArr = [...state.cart];
+console.log('Lucas' ?? null);
+console.log(state.cart.find(el => el.quantity === 5));
 
 if (module.hot) module.hot.accept(); // Makes the page do not reload!

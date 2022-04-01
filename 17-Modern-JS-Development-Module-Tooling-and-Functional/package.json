@@ -2,7 +2,6 @@
   "name": "17-modern-js-development-module-tooling-and-functional",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
@@ -12,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "core-js": "^3.21.1",
     "leaflet": "^1.7.1",
     "lodash-es": "^4.17.21",
     "sass": "^1.43.4"
