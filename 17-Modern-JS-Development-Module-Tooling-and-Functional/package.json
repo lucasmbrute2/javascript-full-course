@@ -11,12 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "core-js": "^3.21.1",
+    "core-js": "^3.6.5",
     "leaflet": "^1.7.1",
     "lodash-es": "^4.17.21",
+    "parcel": "^2.4.1",
+    "regenerator-runtime": "^0.13.9",
     "sass": "^1.43.4"
-  },
-  "devDependencies": {
-    "parcel": "^2.4.1"
   }
 }

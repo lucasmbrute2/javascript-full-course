@@ -1,6 +1,7 @@
 // import cloneDeep from '/node_modules/lodash-es/cloneDeep.js';
 import cloneDeep from 'lodash-es';
 import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 const state = {
   cart: [
@@ -35,6 +36,6 @@ const Souza = new Person('Souza');
 
 const newArr = [...state.cart];
 console.log('Lucas' ?? null);
-console.log(state.cart.find(el => el.quantity === 5));
+const { product, quantity } = state.cart.find(el => el.quantity === 5);
 
 if (module.hot) module.hot.accept(); // Makes the page do not reload!
