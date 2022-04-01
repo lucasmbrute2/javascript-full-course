@@ -9,3 +9,5 @@ import app, { totalPrice, totalQuantity } from './shoppingCart.js';
 ShoppingCart.addToCart('bread', 4);
 app();
 console.log(totalPrice, totalQuantity);
+
+if (module.hot) module.hot.accept();
