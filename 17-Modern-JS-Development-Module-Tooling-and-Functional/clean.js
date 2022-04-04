@@ -18,28 +18,29 @@ const spendingLimits = Object.freeze({
 }); // Object.freeze you can no longer put any new property.
 
 const getLimit = user => spendingLimits?.[user] ?? 0;
+
 // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
-const addExpense = function (value, description, user = 'jonas') {
-  const newObject = { ...budget };
-  console.log(newObject);
+//Pure function :D
+const addExpense = function (budget, value, description, user = 'jonas') {
+  const cleanUser = user.toLowerCase();
 
-  user = user.toLowerCase();
-
-  // if (value <= getLimit(user))
-  //   budget.push({ value: -value, description, user });
+  return value <= getLimit(cleanUser)
+    ? [...budget, { value: -value, description, cleanUser }]
+    : budget;
 };
-addExpense(10, 'Pizza 🍕');
-addExpense(100, 'Going to movies 🍿', 'Matilda');
-addExpense(-1, 'Stuff', 'Jay');
-console.log(budget);
+
+const newBudget1 = addExpense(budget, 10, 'Pizza 🍕');
+console.log(newBudget1);
+const newBudget2 = addExpense(newBudget1, -1, 'Stuff', 'Jay');
+console.log(newBudget2);
+const newBudget3 = addExpense(newBudget2, 100, 'Going to movies 🍿', 'Matilda');
+console.log(newBudget3);
 
 const checkExpenses = function () {
   for (const entry of budget)
     if (entry.value < -getLimit(entry.user)) entry.flag = 'limit';
 };
 checkExpenses();
-
-console.log(budget);
 
 const logBigExpenses = function (bigLimit) {
   let output;
@@ -50,6 +51,5 @@ const logBigExpenses = function (bigLimit) {
         : '';
 
   output = output.slice(0, -2); // Remove last '/ '
-  console.log(output);
 };
 logBigExpenses(100);
