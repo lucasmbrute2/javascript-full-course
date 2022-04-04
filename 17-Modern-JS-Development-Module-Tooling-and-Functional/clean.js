@@ -1,6 +1,7 @@
+'use strict';
 // const { get } = require('core-js/core/dict');
 
-const budget = [
+const budget = Object.freeze([
   { value: 250, description: 'Sold old TV 📺', user: 'jonas' },
   { value: -45, description: 'Groceries 🥑', user: 'jonas' },
   { value: 3500, description: 'Monthly salary 👩‍💻', user: 'jonas' },
@@ -9,20 +10,23 @@ const budget = [
   { value: -20, description: 'Candy 🍭', user: 'matilda' },
   { value: -125, description: 'Toys 🚂', user: 'matilda' },
   { value: -1800, description: 'New Laptop 💻', user: 'jonas' },
-];
+]);
 
-const spendingLimits = {
+const spendingLimits = Object.freeze({
   jonas: 1500,
   matilda: 100,
-};
+}); // Object.freeze you can no longer put any new property.
 
 const getLimit = user => spendingLimits?.[user] ?? 0;
 // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
 const addExpense = function (value, description, user = 'jonas') {
+  const newObject = { ...budget };
+  console.log(newObject);
+
   user = user.toLowerCase();
 
-  if (value <= getLimit(user))
-    budget.push({ value: -value, description, user });
+  // if (value <= getLimit(user))
+  //   budget.push({ value: -value, description, user });
 };
 addExpense(10, 'Pizza 🍕');
 addExpense(100, 'Going to movies 🍿', 'Matilda');
