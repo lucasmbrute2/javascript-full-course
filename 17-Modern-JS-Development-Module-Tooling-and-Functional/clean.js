@@ -41,17 +41,17 @@ const checkExpenses = (budget, limit) =>
     el.value < -getLimit(el.user, limit) ? { ...el, flag: 'limit' } : el
   );
 
-const expense = checkExpenses(newBudget3, spendingLimits);
-console.log(expense);
+const finalBudget = checkExpenses(newBudget3, spendingLimits);
+console.log(finalBudget);
 
-const logBigExpenses = function (bigLimit) {
-  let output;
-  for (const entry of budget)
-    output =
-      entry.value <= -bigLimit
-        ? (output += `${entry.description.slice(-2)} / `)
-        : '';
+const logBigExpenses = function (state, bigLimit) {
+  const bigExpenses = state
+    .filter(entry => entry.value <= -bigLimit)
+    // .map(desc => desc.description.slice(-2))
+    // .join(' / ');
+    .reduce((str, cur) => `${str} / ${cur.description.slice(-2)}`, '');
 
-  output = output.slice(0, -2); // Remove last '/ '
+  return bigExpenses;
 };
-logBigExpenses(100);
+const bigExpense = logBigExpenses(finalBudget, 500);
+console.log(bigExpense);
