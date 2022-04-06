@@ -17,14 +17,14 @@ const spendingLimits = Object.freeze({
   matilda: 100,
 }); // Object.freeze you can no longer put any new property.
 
-const getLimit = user => spendingLimits?.[user] ?? 0;
+const getLimit = (user, limit) => limit?.[user] ?? 0;
 
 // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
 //Pure function :D
 const addExpense = function (budget, value, description, user = 'jonas') {
   const cleanUser = user.toLowerCase();
 
-  return value <= getLimit(cleanUser)
+  return value <= getLimit(cleanUser, spendingLimits)
     ? [...budget, { value: -value, description, cleanUser }]
     : budget;
 };
@@ -36,11 +36,13 @@ console.log(newBudget2);
 const newBudget3 = addExpense(newBudget2, 100, 'Going to movies 🍿', 'Matilda');
 console.log(newBudget3);
 
-const checkExpenses = function () {
-  for (const entry of budget)
-    if (entry.value < -getLimit(entry.user)) entry.flag = 'limit';
-};
-checkExpenses();
+const checkExpenses = (budget, limit) =>
+  budget.map(el =>
+    el.value < -getLimit(el.user, limit) ? { ...el, flag: 'limit' } : el
+  );
+
+const expense = checkExpenses(newBudget3, spendingLimits);
+console.log(expense);
 
 const logBigExpenses = function (bigLimit) {
   let output;
