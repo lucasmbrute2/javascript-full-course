@@ -2,6 +2,7 @@ import icons from '../img/icons.svg';
 const recipeContainer = document.querySelector('.recipe');
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+import * as model from './model';
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -27,22 +28,15 @@ const renderSpinner = parentElement => {
 };
 
 const showRecipe = async () => {
-  // 1) Loading recipe
-
   try {
     const id = window.location.hash.slice(1);
+    // 1) Loading recipe
+    renderSpinner(recipeContainer);
 
     if (!id) return;
 
-    renderSpinner(recipeContainer);
-    const res = await fetch(
-      `https://forkify-api.herokuapp.com/api/v2/recipes/${id}`
-    );
-    const {
-      data: { recipe },
-    } = await res.json();
-    if (!res.ok) throw new Error(`A error: ${res.status}`);
-
+    await model.loadRecipe(id);
+    const { recipe } = model.state;
     // 2) Rendering recipe
 
     const html = `<figure class="recipe__fig">
