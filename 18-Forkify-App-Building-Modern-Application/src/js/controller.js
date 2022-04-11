@@ -3,6 +3,7 @@ const recipeContainer = document.querySelector('.recipe');
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import * as model from './model';
+import recipeView from './views/recipeView';
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -38,6 +39,8 @@ const showRecipe = async () => {
     await model.loadRecipe(id);
     const { recipe } = model.state;
     // 2) Rendering recipe
+
+    recipeView.render();
 
     const html = `<figure class="recipe__fig">
     <img src="${recipe.image_url}" alt="${recipe.title}" class="recipe__img" />
