@@ -1,3 +1,5 @@
+import { TIMEOUT_SEC } from './config';
+
 const timeout = function (s) {
   return new Promise((_, reject) => {
     setTimeout(() => {
@@ -8,7 +10,7 @@ const timeout = function (s) {
 
 export const getJSON = async url => {
   try {
-    const res = await Promise.race([fetch(url), timeout(10)]); // Returns the first fullfield promise
+    const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]); // Returns the first fullfield promise
     const data = await res.json();
     if (!res.ok) throw new Error(`A error: ${res.status}`);
     return data;
