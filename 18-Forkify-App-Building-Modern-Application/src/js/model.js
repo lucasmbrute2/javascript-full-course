@@ -10,7 +10,6 @@ export const loadRecipe = async id => {
     const {
       data: { recipe },
     } = data;
-    console.log(data);
 
     state.recipe = recipe;
   } catch (err) {
