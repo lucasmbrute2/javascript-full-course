@@ -1,5 +1,6 @@
 import { API_URL } from './config';
 import { getJSON } from './helpers';
+
 export const state = {
   recipe: {},
 };
@@ -13,6 +14,6 @@ export const loadRecipe = async id => {
 
     state.recipe = recipe;
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };
