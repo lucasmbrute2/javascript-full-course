@@ -25,9 +25,13 @@ export const loadSearchResults = async query => {
     const {
       data: { recipes },
     } = data;
+    if (!data.results) throw new Error('No recipes found');
+
     state.recipe = recipes;
+
+    console.log(data);
   } catch (error) {
-    console.err(`${err} 🔥🔥🔥`);
-    throw err;
+    console.error(`${error} 🔥🔥🔥`);
+    throw error;
   }
 };
