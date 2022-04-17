@@ -31,11 +31,9 @@ const controlSearchResults = async () => {
     resultsView.renderSpinner();
 
     const query = searchView.getQuery();
-    if (!query) throw Error(`Without any search`);
     await model.loadSearchResults(query);
 
     resultsView.render(model.state.search.results);
-    // resultsView.stopSpinner();
   } catch (error) {
     resultsView.stopSpinner();
     recipeView.renderError(error);

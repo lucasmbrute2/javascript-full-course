@@ -29,7 +29,6 @@ export const loadSearchResults = async query => {
     const {
       data: { recipes },
     } = data;
-    if (!data.results) throw new Error('No recipes found');
 
     state.search.query = query;
     state.search.results = recipes;
