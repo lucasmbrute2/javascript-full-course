@@ -13,11 +13,11 @@ class Search {
     this.#parentEl.addEventListener('submit', e => {
       e.preventDefault();
       handler();
-      this.clearInput();
+      this.#clearInput();
     });
   }
 
-  clearInput() {
+  #clearInput() {
     this.#parentEl.querySelector('.search__field').value = '';
   }
 }
