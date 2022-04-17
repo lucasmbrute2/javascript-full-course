@@ -26,5 +26,3 @@ const init = () => {
   recipeView.addHandlerRender(controlRecipes);
 };
 init();
-
-model.loadSearchResults();

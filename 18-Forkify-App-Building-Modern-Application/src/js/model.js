@@ -4,6 +4,10 @@ import { API_URL_QUERY } from './config';
 
 export const state = {
   recipe: {},
+  search: {
+    query: '',
+    results: [],
+  },
 };
 
 export const loadRecipe = async id => {
@@ -27,9 +31,8 @@ export const loadSearchResults = async query => {
     } = data;
     if (!data.results) throw new Error('No recipes found');
 
-    state.recipe = recipes;
-
-    console.log(data);
+    state.search.query = query;
+    state.search.results.push(recipes);
   } catch (error) {
     console.error(`${error} 🔥🔥🔥`);
     throw error;
