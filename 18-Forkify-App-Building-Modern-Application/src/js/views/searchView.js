@@ -1,16 +1,16 @@
 class Search {
-  #parentEl = document.querySelector('.search');
+  #_parentElement = document.querySelector('.search');
 
   getQuery() {
     try {
-      return this.#parentEl.querySelector('.search__field').value;
+      return this.#_parentElement.querySelector('.search__field').value;
     } catch (error) {
       throw `Nothing was found 🙁`;
     }
   }
 
   addHandlerSearch(handler) {
-    this.#parentEl.addEventListener('submit', e => {
+    this.#_parentElement.addEventListener('submit', e => {
       e.preventDefault();
       handler();
       this.#clearInput();
@@ -18,7 +18,7 @@ class Search {
   }
 
   #clearInput() {
-    this.#parentEl.querySelector('.search__field').value = '';
+    this.#_parentElement.querySelector('.search__field').value = '';
   }
 }
 

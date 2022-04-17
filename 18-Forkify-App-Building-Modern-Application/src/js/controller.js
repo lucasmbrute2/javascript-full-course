@@ -3,6 +3,7 @@ import 'regenerator-runtime/runtime';
 import * as model from './model';
 import recipeView from './views/recipeView';
 import searchView from './views/searchView';
+import resultsView from './views/resultsView';
 
 // https://forkify-api.herokuapp.com/v2
 
@@ -25,12 +26,16 @@ const controlRecipes = async () => {
 };
 const controlSearchResults = async () => {
   try {
+    resultsView.renderSpinner();
+
     const query = searchView.getQuery();
     if (!query) throw Error(`Without any search`);
 
     await model.loadSearchResults(query);
     console.log(model.state.search.results);
+    resultsView.stopSpinner();
   } catch (error) {
+    resultsView.stopSpinner();
     recipeView.renderError(error);
   }
 };

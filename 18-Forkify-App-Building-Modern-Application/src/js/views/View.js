@@ -28,7 +28,12 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', html);
   }
 
+  stopSpinner() {
+    this._clear();
+  }
+
   renderError(error = this._errorMessage) {
+    this._clear();
     const html = `
     <div class="error">
         <div>
