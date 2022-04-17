@@ -26,3 +26,14 @@ const init = () => {
   recipeView.addHandlerRender(controlRecipes);
 };
 init();
+
+const controlSearchResults = async queryWord => {
+  try {
+    await model.loadSearchResults(queryWord);
+    console.log(model.state.search.results);
+  } catch (error) {
+    recipeView.renderError(error);
+  }
+};
+
+controlSearchResults();
