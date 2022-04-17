@@ -3,7 +3,7 @@ class Search {
 
   getQuery() {
     try {
-      this.#parentEl.querySelector('search__field').value;
+      return this.#parentEl.querySelector('.search__field').value;
     } catch (error) {
       throw `Nothing was found 🙁`;
     }
