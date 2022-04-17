@@ -1,4 +1,5 @@
 import View from './View';
+import icons from 'url:../../img/icons.svg';
 
 class ResultView extends View {
   _parentElement = document.querySelector('.results');
@@ -11,7 +12,7 @@ class ResultView extends View {
   _generateMarkupPreview(recipe) {
     return `
     <li class="preview">
-      <a class="preview__link preview__link--active" href="#${recipe.id}">
+      <a class="preview__link" href="#${recipe.id}">
         <figure class="preview__fig">
           <img src="${recipe.image_url}" alt="Test" />
         </figure>
@@ -20,7 +21,7 @@ class ResultView extends View {
           <p class="preview__publisher">${recipe.publisher}</p>
           <div class="preview__user-generated">
             <svg>
-              <use href="src/img/icons.svg#icon-user"></use>
+              <use href="${icons}#icon-user"></use>
             </svg>
           </div>
         </div>
