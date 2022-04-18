@@ -1,12 +1,12 @@
-import { API_URL } from './config';
+import { API_URL, RESULTS_PER_PAGE, API_URL_QUERY } from './config';
 import { getJSON } from './helpers';
-import { API_URL_QUERY } from './config';
 
 export const state = {
   recipe: {},
   search: {
     query: '',
     results: [],
+    resultsPerPage: RESULTS_PER_PAGE,
   },
 };
 
@@ -37,3 +37,11 @@ export const loadSearchResults = async query => {
     throw error;
   }
 };
+
+export const getSearchResultPage = page => {
+  const beginningAndEndPagination = [
+    (page - 1) * state.search.resultsPerPage,
+    page * 10,
+  ];
+  return state.search.results.slice(...beginningAndEndPagination);
+}; // Returns the page that will be rendered
