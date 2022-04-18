@@ -6,6 +6,7 @@ export const state = {
   search: {
     query: '',
     results: [],
+    page: 1,
     resultsPerPage: RESULTS_PER_PAGE,
   },
 };
@@ -38,10 +39,12 @@ export const loadSearchResults = async query => {
   }
 };
 
-export const getSearchResultPage = page => {
+export const getSearchResultPage = (page = state.search.page) => {
+  state.search.page = page;
+
   const beginningAndEndPagination = [
     (page - 1) * state.search.resultsPerPage,
-    page * 10,
+    page * state.search.resultsPerPage,
   ];
   return state.search.results.slice(...beginningAndEndPagination);
 }; // Returns the page that will be rendered
