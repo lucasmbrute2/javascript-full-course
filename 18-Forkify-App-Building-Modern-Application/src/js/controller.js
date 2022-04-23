@@ -30,9 +30,14 @@ const controlSearchResults = async () => {
   try {
     resultsView.renderSpinner();
 
+    // 1) Get search query
     const query = searchView.getQuery();
+    if (!query) return;
+
+    // 2) Load serch results
     await model.loadSearchResults(query);
 
+    //3) Render results
     resultsView.render(model.getSearchResultPage(1));
   } catch (error) {
     resultsView.stopSpinner();
