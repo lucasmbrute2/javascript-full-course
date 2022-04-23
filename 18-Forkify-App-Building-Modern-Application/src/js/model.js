@@ -39,7 +39,7 @@ export const loadSearchResults = async query => {
   }
 };
 
-export const getSearchResultPage = (page = state.search.page) => {
+export const getSearchResultPage = (page = 1) => {
   state.search.page = page;
 
   //const start = (page - 1) * state.search.resultsPerPage
