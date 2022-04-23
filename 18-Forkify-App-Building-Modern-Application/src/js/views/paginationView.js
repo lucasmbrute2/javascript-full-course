@@ -45,13 +45,17 @@ class PaginationView extends View {
     //Other page
     if (currentPage != 1 && currentPage < numPages)
       html = `
-    <button class="btn--inline pagination__btn--prev">
+    <button data-goTo="${
+      currentPage - 1
+    }" class="btn--inline pagination__btn--prev">
       <svg class="search__icon">
         <use href="${icons}#icon-arrow-left"></use>
       </svg>
       <span>Page ${currentPage - 1}</span>
     </button>
-    <button class="btn--inline pagination__btn--next">
+    <button data-goTo="${
+      currentPage + 1
+    }" class="btn--inline pagination__btn--next">
     <span>Page ${currentPage + 1}</span>
       <svg class="search__icon">
         <use href="${icons}#icon-arrow-right"></use>
