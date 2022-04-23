@@ -8,7 +8,6 @@ export default class View {
       return this.renderError();
     this._data = data;
     this._clear();
-    s;
     this._parentElement.insertAdjacentHTML(
       'afterbegin',
       this._generateMarkup()
