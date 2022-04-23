@@ -46,11 +46,17 @@ const controlSearchResults = async () => {
   } catch (error) {
     resultsView.stopSpinner();
     recipeView.renderError(error);
+    console.error(error);
   }
+};
+
+const controlPagination = () => {
+  console.log('controlPagination was called');
 };
 
 const init = () => {
   recipeView.addHandlerRender(controlRecipes);
   searchView.addHandlerSearch(controlSearchResults);
+  paginationView.addHandlerClick(controlPagination);
 };
 init();
