@@ -19,6 +19,7 @@ export const loadRecipe = async id => {
     } = data;
 
     state.recipe = recipe;
+    console.log(recipe);
   } catch (err) {
     throw err;
   }
@@ -50,3 +51,13 @@ export const getSearchResultPage = (page = 1) => {
   ];
   return state.search.results.slice(...beginningAndEndPagination);
 }; // Returns the page that will be rendered
+
+export const updateServings = newServings => {
+  state.recipe.ingredients.forEach(ing => {
+    ing.quantity = (ing.quantity * newServings) / state.recipe.servings;
+    // newQt = oldQt * newServings / oldServings
+  });
+
+  //Updating servings on state
+  state.recipe.servings = newServings;
+};
