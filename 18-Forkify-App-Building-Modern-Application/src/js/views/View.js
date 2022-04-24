@@ -14,6 +14,17 @@ export default class View {
     );
   }
 
+  update(data) {
+    if (!data || (Array.isArray(data) && data.length === 0))
+      return this.renderError();
+
+    this._data = data;
+    const newMarkup = this._generateMarkup();
+
+    //Creating a new DOM in memmory from an string
+    const newDOM = document.createRange().createContextualFragment(newMarkup);
+  }
+
   _clear() {
     this._parentElement.innerHTML = '';
   }
