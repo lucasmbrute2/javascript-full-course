@@ -23,8 +23,15 @@ export default class View {
 
     //Creating a new DOM (virtual DOM) in memory from an string
     const newDOM = document.createRange().createContextualFragment(newMarkup);
-    const newElements = newDOM.querySelectorAll('*');
-    console.log(test);
+    const newElements = Array.from(newDOM.querySelectorAll('*'));
+    const curElements = Array.from(this._parentElement.querySelectorAll('*'));
+
+    // Comparing updated elements with the old ones
+    newElements.forEach((newEL, i) => {
+      // Looping over the 2 arrays at same time.
+      const curEL = curElements[i];
+      newEL.isEqualNode(curEL); // Compares if is the same Node.
+    });
   }
 
   _clear() {
