@@ -21,8 +21,10 @@ export default class View {
     this._data = data;
     const newMarkup = this._generateMarkup();
 
-    //Creating a new DOM in memmory from an string
+    //Creating a new DOM (virtual DOM) in memory from an string
     const newDOM = document.createRange().createContextualFragment(newMarkup);
+    const newElements = newDOM.querySelectorAll('*');
+    console.log(test);
   }
 
   _clear() {
