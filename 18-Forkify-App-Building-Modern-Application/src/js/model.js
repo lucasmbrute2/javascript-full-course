@@ -19,7 +19,6 @@ export const loadRecipe = async id => {
     } = data;
 
     state.recipe = recipe;
-    console.log(recipe);
   } catch (err) {
     throw err;
   }
