@@ -68,7 +68,10 @@ const controlServing = newServings => {
 };
 
 const controlAddBookmark = () => {
-  model.addBookMark(model.state.recipe);
+  // Verifying if bookmark is already clicked (if clicked, we delete it!)
+  if (!model.state.recipe.bookmarked) model.addBookMark(model.state.recipe);
+  else model.deleteBookmark(model.state.recipe.id); // If no clicked, we add it!
+
   recipeView.update(model.state.recipe);
 };
 
