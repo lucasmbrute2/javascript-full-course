@@ -15,9 +15,12 @@ if (module.hot) module.hot.accept(); // Makes the code automatically rebuilds
 const controlRecipes = async () => {
   try {
     const id = window.location.hash.slice(1);
-    // 1) Loading recipe
     if (!id) return;
     recipeView.renderSpinner();
+    // 0) Update results view to mark selected search result
+    resultsView.update(model.getSearchResultPage());
+
+    // 1) Loading recipe
 
     await model.loadRecipe(id);
 
