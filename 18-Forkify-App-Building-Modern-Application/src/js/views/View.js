@@ -39,6 +39,12 @@ export default class View {
       ) {
         curEL.textContent = newEL.textContent;
       }
+
+      // Replacing attributes
+      if (!isEqualNodesInElements)
+        Array.from(newEL.attributes).forEach(attr =>
+          curEL.setAttribute(attr.name, attr.value)
+        );
     });
   }
 
