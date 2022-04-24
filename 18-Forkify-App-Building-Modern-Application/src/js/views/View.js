@@ -30,7 +30,15 @@ export default class View {
     newElements.forEach((newEL, i) => {
       // Looping over the 2 arrays at same time.
       const curEL = curElements[i];
-      newEL.isEqualNode(curEL); // Compares if is the same Node.
+      const isEqualNodesInElements = newEL.isEqualNode(curEL); // Compares if is the same Node.
+
+      if (
+        // Replacing only the texts
+        !isEqualNodesInElements &&
+        newEL.firstChild?.nodeValue.trim() !== ''
+      ) {
+        curEL.textContent = newEL.textContent;
+      }
     });
   }
 
