@@ -19,6 +19,10 @@ export const loadRecipe = async id => {
       data: { recipe },
     } = data;
     state.recipe = recipe;
+    state.recipe.bookmarked = false;
+
+    if (state.bookmarks.some(bookmark => bookmark.id === recipe.id))
+      state.recipe.bookmarked = true;
   } catch (err) {
     throw err;
   }
