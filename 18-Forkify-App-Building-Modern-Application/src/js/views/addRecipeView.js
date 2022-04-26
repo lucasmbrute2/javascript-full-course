@@ -9,14 +9,16 @@ class AddRecipeView extends View {
 
   constructor() {
     super(); // Mandatory use 'super()' cuz is a child class
-    this.addHandlerShowWindow();
+    this._addHandlerShowWindow();
   }
 
-  addHandlerShowWindow() {
-    this._btnOpen.addEventListener('click', () => {
-      this._overlay.classList.toggle('hidden');
-      this._overlay.classList.toggle('add-recipe-window');
-    });
+  toggleWindow() {
+    this._overlay.classList.toggle('hidden');
+    this._overlay.classList.toggle('hidden');
+  }
+
+  _addHandlerShowWindow() {
+    this._btnOpen.addEventListener('click', this.toggleWindow.bind(this));
   }
 
   _generateMarkup() {}
