@@ -65,12 +65,17 @@ export const updateServings = newServings => {
   state.recipe.servings = newServings;
 };
 
+const persistBookmarks = () => {
+  console.log(state.bookmarks);
+  localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
+};
+
 export const addBookMark = recipe => {
   // Add bookmark
   state.bookmarks.push(recipe);
-
   // Mark current recipe as bookmark
   if (recipe.id === state.recipe.id) state.recipe.bookmarked = true;
+  persistBookmarks();
 };
 
 export const deleteBookmark = id => {
@@ -80,4 +85,16 @@ export const deleteBookmark = id => {
 
   // Mark current recipe as NOT bookmark
   if (id === state.recipe.id) state.recipe.bookmarked = false;
+  persistBookmarks();
+};
+
+const init = () => {
+  const storage = localStorage.getItem('bookmarks');
+  if (storage) state.bookmarks = JSON.parse(storage);
+};
+init();
+
+// In case wants to remove all bookmarks (just in dev)
+const clearBookmarks = () => {
+  localStorage.clear('bookmarks');
 };
