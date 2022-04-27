@@ -88,8 +88,12 @@ const controlBookmarks = () => {
 };
 
 const controlAddRecipe = newRecipe => {
-  model.uploadRecipe(newRecipe);
-  // Upload data to API
+  try {
+    // Upload data to API
+    model.uploadRecipe(newRecipe);
+  } catch (error) {
+    addRecipeView.renderError(error);
+  }
 };
 
 const init = () => {
