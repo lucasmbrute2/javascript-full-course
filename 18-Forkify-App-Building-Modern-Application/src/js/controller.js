@@ -88,7 +88,8 @@ const controlBookmarks = () => {
 };
 
 const controlAddRecipe = newRecipe => {
-  console.log(newRecipe);
+  model.uploadRecipe(newRecipe);
+  // Upload data to API
 };
 
 const init = () => {
