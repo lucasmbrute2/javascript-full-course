@@ -100,20 +100,33 @@ const clearBookmarks = () => {
 };
 
 export const uploadRecipe = async newRecipe => {
-  // Getting only the ingredients
-  const ingredients = Object.entries(newRecipe)
-    .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
-    .map(ing => {
-      const ingArr = ing[1].replaceAll(' ', '').split(',');
-      const [quantity, unit, description] = ingArr;
+  try {
+    // Getting only the ingredients
+    const ingredients = Object.entries(newRecipe)
+      .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
+      .map(ing => {
+        const ingArr = ing[1].replaceAll(' ', '').split(',');
+        const [quantity, unit, description] = ingArr;
 
-      if (!ingArr.length !== 3)
-        throw new Error(
-          'Wrong ingredient format! Please use the correct format :)'
-        );
+        if (ingArr.length !== 3)
+          throw new Error(
+            'Wrong ingredient format! Please use the correct format :)'
+          );
 
-      return { quantity: quantity ? +quantity : null, unit, description };
-    });
+        return { quantity: quantity ? +quantity : null, unit, description };
+      });
 
-  console.log(ingredients);
+    const recipe = {
+      tile: newRecipe.tittle,
+      source_url: newRecipe.sourceUrl,
+      image_url: newRecipe.image,
+      publisher: newRecipe.publisher,
+      cooking_time: +newRecipe.cookingTime,
+      servings: +newRecipe.servings,
+      ingredients,
+    };
+    console.log(recipe, ingredients);
+  } catch (err) {
+    throw err;
+  }
 };
