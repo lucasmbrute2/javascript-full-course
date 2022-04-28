@@ -19,7 +19,7 @@ export const getJSON = async url => {
   }
 };
 
-export const sendGetJSON = async (url, payload) => {
+export const sendJSON = async (url, payload) => {
   try {
     const fetchPro = fetch(url, {
       method: 'POST',
@@ -31,7 +31,9 @@ export const sendGetJSON = async (url, payload) => {
 
     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
     const data = await res.json();
+
     if (!res.ok) throw new Error(`A error: ${res.status}`);
+
     return data;
   } catch (err) {
     throw err;

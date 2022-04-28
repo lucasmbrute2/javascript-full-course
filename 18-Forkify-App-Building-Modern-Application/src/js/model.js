@@ -1,5 +1,5 @@
-import { API_URL, RESULTS_PER_PAGE, API_URL_QUERY } from './config';
-import { getJSON } from './helpers';
+import { API_URL, RESULTS_PER_PAGE, API_URL_QUERY, API_KEY } from './config';
+import { getJSON, sendJSON } from './helpers';
 
 export const state = {
   recipe: {},
@@ -117,7 +117,7 @@ export const uploadRecipe = async newRecipe => {
       });
 
     const recipe = {
-      tile: newRecipe.tittle,
+      title: newRecipe.title,
       source_url: newRecipe.sourceUrl,
       image_url: newRecipe.image,
       publisher: newRecipe.publisher,
@@ -125,7 +125,9 @@ export const uploadRecipe = async newRecipe => {
       servings: +newRecipe.servings,
       ingredients,
     };
-    console.log(recipe, ingredients);
+
+    const data = await sendJSON(`${API_URL}?key=${API_KEY}`, recipe);
+    console.log(data);
   } catch (err) {
     throw err;
   }
