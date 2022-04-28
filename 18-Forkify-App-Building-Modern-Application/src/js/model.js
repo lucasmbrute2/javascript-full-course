@@ -124,6 +124,7 @@ export const uploadRecipe = async newRecipe => {
       cooking_time: +newRecipe.cookingTime,
       servings: +newRecipe.servings,
       ingredients,
+      key: API_KEY,
     };
 
     // Storing our data in state.
@@ -135,6 +136,7 @@ export const uploadRecipe = async newRecipe => {
     if (status !== 'success') throw new Error('Fail to fetch data');
 
     state.recipe = data.recipe;
+    addBookMark(state.recipe);
   } catch (err) {
     throw err;
   }
