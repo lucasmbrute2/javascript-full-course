@@ -1,5 +1,5 @@
 import { API_URL, RESULTS_PER_PAGE, API_URL_QUERY, API_KEY } from './config';
-import { getJSON, sendJSON } from './helpers';
+import { AJAX, AJAX } from './helpers';
 
 export const state = {
   recipe: {},
@@ -14,7 +14,7 @@ export const state = {
 
 export const loadRecipe = async id => {
   try {
-    const data = await getJSON(API_URL + id);
+    const data = await AJAX(API_URL + id);
     const {
       data: { recipe },
     } = data;
@@ -30,7 +30,7 @@ export const loadRecipe = async id => {
 
 export const loadSearchResults = async query => {
   try {
-    const data = await getJSON(API_URL_QUERY + query);
+    const data = await AJAX(API_URL_QUERY + query);
     const {
       data: { recipes },
     } = data;
@@ -128,10 +128,7 @@ export const uploadRecipe = async newRecipe => {
     };
 
     // Storing our data in state.
-    const { status, data } = await sendJSON(
-      `${API_URL}?key=${API_KEY}`,
-      recipe
-    );
+    const { status, data } = await AJAX(`${API_URL}?key=${API_KEY}`, recipe);
 
     if (status !== 'success') throw new Error('Fail to fetch data');
 

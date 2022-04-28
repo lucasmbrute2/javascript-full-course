@@ -8,6 +8,30 @@ const timeout = function (s) {
   });
 }; // Will returns a rejected Promise after a pre defined number of seconds
 
+export const AJAX = async (url, payload = undefined) => {
+  try {
+    const fetchPro = payload
+      ? fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+      : fetch(url);
+
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]); // Returns the first fullfield promise
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(`A error: ${res.status}`);
+
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+/*
 export const getJSON = async url => {
   try {
     const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]); // Returns the first fullfield promise
@@ -21,14 +45,6 @@ export const getJSON = async url => {
 
 export const sendJSON = async (url, payload) => {
   try {
-    const fetchPro = fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-
     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
     const data = await res.json();
 
@@ -39,3 +55,4 @@ export const sendJSON = async (url, payload) => {
     throw err;
   }
 };
+*/
