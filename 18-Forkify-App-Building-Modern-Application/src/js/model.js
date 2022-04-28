@@ -126,8 +126,15 @@ export const uploadRecipe = async newRecipe => {
       ingredients,
     };
 
-    const data = await sendJSON(`${API_URL}?key=${API_KEY}`, recipe);
-    console.log(data);
+    // Storing our data in state.
+    const { status, data } = await sendJSON(
+      `${API_URL}?key=${API_KEY}`,
+      recipe
+    );
+
+    if (status !== 'success') throw new Error('Fail to fetch data');
+
+    state.recipe = data.recipe;
   } catch (err) {
     throw err;
   }
