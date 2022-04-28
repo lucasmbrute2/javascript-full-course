@@ -30,7 +30,7 @@ export const loadRecipe = async id => {
 
 export const loadSearchResults = async query => {
   try {
-    const data = await AJAX(API_URL_QUERY + query);
+    const data = await AJAX(`${API_URL}?search=${query}&key=${API_KEY}`);
     const {
       data: { recipes },
     } = data;
